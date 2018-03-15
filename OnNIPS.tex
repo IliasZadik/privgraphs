@@ -1,0 +1,394 @@
+\documentclass[12pt]{article}
+%\documentclass{sig-alternate}
+
+
+\usepackage{subfigure}
+
+\newcommand{\ldot}[2]{\ensuremath{\langle #1, #2 \rangle}}
+
+
+
+
+\usepackage{latexsym}
+\usepackage{graphics}
+\usepackage{amsmath}
+\usepackage{xspace}
+\usepackage{amssymb}
+\usepackage{psfrag}
+\usepackage{epsfig}
+\usepackage{amsthm}
+\usepackage{pst-all}
+%\usepackage{auto-pst-pdf}
+%\usepackage{hyperref}
+
+\usepackage{color}
+
+\definecolor{Red}{rgb}{1,0,0}
+\definecolor{Blue}{rgb}{0,0,1}
+\definecolor{Olive}{rgb}{0.41,0.55,0.13}
+\definecolor{Yarok}{rgb}{0,0.5,0}
+\definecolor{Green}{rgb}{0,1,0}
+\definecolor{MGreen}{rgb}{0,0.8,0}
+\definecolor{DGreen}{rgb}{0,0.55,0}
+\definecolor{Yellow}{rgb}{1,1,0}
+\definecolor{Cyan}{rgb}{0,1,1}
+\definecolor{Magenta}{rgb}{1,0,1}
+\definecolor{Orange}{rgb}{1,.5,0}
+\definecolor{Violet}{rgb}{.5,0,.5}
+\definecolor{Purple}{rgb}{.75,0,.25}
+\definecolor{Brown}{rgb}{.75,.5,.25}
+\definecolor{Grey}{rgb}{.5,.5,.5}
+
+\def\red{\color{Red}}
+\def\blue{\color{Blue}}
+\def\yarok{\color{Yarok}}
+%\def\olive{\color{Olive}}
+%\def\green{\color{Green}}
+%\def\mgreen{\color{MGreen}}
+\def\dgreen{\color{DGreen}}
+%\def\yellow{\color{Yellow}}
+%\def\cyan{\color{Cyan}}
+%\def\magenta{\color{Magenta}}
+%\def\orange{\color{Orange}}
+%\def\violet{\color{Violet}}
+%\def\purple{\color{Purple}}
+%\def\brown{\color{Brown}}
+%\def\grey{\color{Grey}}
+
+\newcommand{\mnote}[1]{{\red Madhu's Note: #1}}
+\newcommand{\dnote}[1]{{\dgreen David's Note: #1}}
+
+\newcommand{\bfX}{{\bf X}}
+\newcommand{\bfU}{{\bf U}}
+\newcommand{\bfu}{{\bf u}}
+\newcommand{\bfV}{{\bf V}}
+\newcommand{\bfv}{{\bf v}}
+\newcommand{\bfT}{{\bf T}}
+\newcommand{\bfx}{\mbox{\bf x}}
+\newcommand{\bfY}{{\bf Y}}
+\newcommand{\bfZ}{{\bf Z}}
+\newcommand{\bfz}{{\bf z}}
+\newcommand{\bfPhi}{{\bf\Phi}}
+
+
+\setlength{\oddsidemargin}{-.20in}
+\setlength{\evensidemargin}{-.20in} \setlength{\textwidth}{6.8in}
+\setlength{\topmargin}{-0.6in} \setlength{\textheight}{9.1in}
+
+\pagenumbering{arabic}
+
+
+\newcommand{\Pois}{\ensuremath{\operatorname{Pois}}\xspace}
+\newcommand{\Exp}{\ensuremath{\operatorname{Exp}}\xspace}
+\newcommand{\Bi}{\ensuremath{\operatorname{Bi}}\xspace}
+\newcommand{\Be}{\ensuremath{\operatorname{Be}}\xspace}
+\newcommand{\Perm}{\ensuremath{\operatorname{Perm}}\xspace}
+\newcommand{\Hom}{\ensuremath{\operatorname{Hom}}\xspace}
+%\newcommand{\hom}{\ensuremath{\operatorname{hom}}\xspace}
+
+\def\smskip{\par\vskip 7pt}
+\def\example{{\bf Example :\ }}
+\newcommand{\vvert}{\vspace{.1in}}
+\newcommand{\pr}{\mathbb{P}}
+%\newcommand{\E}{\mathbb{E}}
+\newcommand{\E}[1]{\mathbb{E}\!\left[#1\right]}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Hg}{\mathbb{H}}
+\newcommand{\HH}{\mathcal{H}}
+\newcommand{\T}{\mathbb{T}}
+\newcommand{\Lnorm}{\mathbb{L}}
+\newcommand{\distr}{\stackrel{d}{=}}
+
+\newcommand{\bincube}{\{0,1\}^{n\choose 2}}
+
+
+
+\newcommand{\I}{{\bf \mathcal{I}}}
+\newcommand{\M}{{\bf \mathcal{M}}}
+\newcommand{\N}{{\bf \mathcal{N}}}
+\newcommand{\Overlap}{\mathcal{\mathcal{O}}}
+\newcommand{\ROverlap}{\mathcal{\mathcal{R}}}
+
+\newcommand{\mb}[1]{\mbox{\boldmath $#1$}}
+\newcommand{\mbp}{\mb{p}}
+\newcommand{\mbx}{\mb{x}}
+\newcommand{\mby}{\mb{y}}
+\newcommand{\mbz}{\mb{z}}
+\newcommand{\mbI}{\mb{I}}
+\newcommand{\mbL}{\mb{L}}
+\newcommand{\mbM}{\mb{M}}
+\newcommand{\mbZ}{\mb{Z}}
+\newcommand{\zero}{\mb{0}}
+\newcommand{\alphal}{\underline{\alpha}}
+\newcommand{\alphau}{\bar{\alpha}}
+\newcommand{\q}{[q^-]}
+\newcommand{\rM}{\mathcal{M}}
+\newcommand{\Dk}{[0,D]^{(k+1)\times k}}
+\newcommand{\Dm}{[0,D]^{(m+1)\times m}}
+\newcommand{\tomega}{\tilde{\omega}}
+
+\newcommand{\calD}{{\cal D}}
+\newcommand{\calG}{{\cal G}}
+\newcommand{\sign}{\mathrm{sign}}
+
+
+\newcommand{\ignore}[1]{\relax}
+
+\newcommand{\even}{\text{even}}
+\newcommand{\odd}{\text{odd}}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{prop}[theorem]{Proposition}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{coro}[theorem]{Corollary}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{Defi}[theorem]{Definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{Assumption}[theorem]{Assumption}
+\newtheorem{observation}[theorem]{Observation}
+
+\newcommand{\ER}{Erd{\"o}s-R\'{e}nyi }
+\newcommand{\Lovasz}{Lov\'{a}sz}
+\newcommand{\local}{decimation}
+
+
+%%---------------------------------- COLOR EDITTING ADDED BY MOHSEN --------------
+%%--------------------------------------------------------------------------------
+\definecolor{Red}{rgb}{1,0,0}
+\definecolor{Blue}{rgb}{0,0,1}
+\definecolor{Olive}{rgb}{0.41,0.55,0.13}
+\definecolor{Green}{rgb}{0,1,0}
+\definecolor{MGreen}{rgb}{0,0.8,0}
+\definecolor{DGreen}{rgb}{0,0.55,0}
+\definecolor{Yellow}{rgb}{1,1,0}
+\definecolor{Cyan}{rgb}{0,1,1}
+\definecolor{Magenta}{rgb}{1,0,1}
+\definecolor{Orange}{rgb}{1,.5,0}
+\definecolor{Violet}{rgb}{.5,0,.5}
+\definecolor{Purple}{rgb}{.75,0,.25}
+\definecolor{Brown}{rgb}{.75,.5,.25}
+\definecolor{Grey}{rgb}{.5,.5,.5}
+\definecolor{Pink}{rgb}{1,0,1}
+\definecolor{DBrown}{rgb}{.5,.34,.16}
+\definecolor{Black}{rgb}{0,0,0}
+
+\def\red{\color{Red}}
+\def\blue{\color{Blue}}
+\def\olive{\color{Olive}}
+\def\green{\color{Green}}
+\def\mgreen{\color{MGreen}}
+\def\dgreen{\color{DGreen}}
+\def\yellow{\color{Yellow}}
+\def\cyan{\color{Cyan}}
+\def\magenta{\color{Magenta}}
+\def\orange{\color{Orange}}
+\def\violet{\color{Violet}}
+\def\purple{\color{Purple}}
+\def\brown{\color{Brown}}
+\def\grey{\color{Grey}}
+\def\doubt{\color{Pink}}
+\def\dbrown{\color{DBrown}}
+\def\black{\color{Black}}
+
+%%------------------------------------------------------
+%% How to remove colors
+\long\def\mnew#1{{\blue #1}}   %%  Use this to add colors
+
+%\long\def\mnew#1{{#1}}   %%  Use this to remove the colors
+
+
+%%------------------------------------------------------
+
+
+
+
+
+\usepackage{float}
+\begin{document}
+\title{Private Graphon Estimation: work in progress}
+\date{}
+
+
+
+
+\maketitle
+
+
+
+
+\section{Notation}
+We use the notation of \cite{Borgs2015}.
+\section{The result}
+
+In \cite{Borgs2015} the following theorem was established. 
+
+\begin{theorem}[Theorem 5 from \cite{Borgs2015}] 
+Let $W: [0,1]^2 \rightarrow [0,\Lambda]$ be a normalised graphon, $G=G_n(\rho W)$, $ \epsilon>0$, $\lambda \geq 1$ and $k \in \mathbb{Z}$. Assume also that
+ \begin{itemize}
+\item  $6 \log n/n<\rho \leq 1/\Lambda$
+\item $8 \Lambda \leq \lambda  \leq \sqrt{n}$
+\item $2 \leq k \leq \min \{n,\sqrt{\frac{\rho}{2}},e^{\frac{\rho n}{2}}\}$
+\item $\rho n \epsilon \rightarrow + \infty$
+\end{itemize} 
+Then the Algorithm 1 from \cite{Borgs2015} with input $\epsilon,\lambda,k$ and $G$ outputs a pair $(\hat{\rho},\hat{B}) \in \mathbb{R} \times \mathbb{R}^{k \times k}$ with
+\begin{equation}
+\hat{\delta}_2\left(\frac{1}{\hat{\rho}}\hat{B},H_n(W)\right) \leq \hat{\epsilon}_k^{(O)}(H_n(W))+O_P\left(\sqrt[4]{\lambda^2(\frac{ \log k}{\rho n}+\frac{k^2}{\rho n^2})}+\lambda \sqrt{\frac{k^2 \log n}{n \epsilon}}+\frac{\sqrt{\lambda}}{n \rho \epsilon} \right).
+\end{equation}
+\end{theorem}
+
+We prove a new version of the above result which improves the error bound (the fourth root becomes a square root) and holds for arbitrary $k$. In this version we though, at the moment, require a weak upper bound on $\epsilon$.
+\begin{theorem}\label{stronger}
+Let $W: [0,1]^2 \rightarrow [0,\Lambda]$ be a normalised graphon, $G=G_n(\rho W)$, $ \epsilon>0$, $\lambda \geq 1$ and $k \in \mathbb{Z}$. Assume also that
+ \begin{itemize}
+\item  $6 \log n/n<\rho \leq 1/\Lambda$
+\item $8 \Lambda \leq \lambda  \leq \sqrt{n}$
+\item $\rho n \epsilon \rightarrow +\infty$
+\item $\epsilon=O(k^2 \log n)$
+\end{itemize} 
+Then the Algorithm 1 from \cite{Borgs2015} with input $\epsilon,\lambda,k$ and $G$ outputs a pair $(\hat{\rho},\hat{B}) \in \mathbb{R} \times \mathbb{R}^{k \times k}$ with
+\begin{equation*}
+\hat{\delta}_2\left(\frac{1}{\hat{\rho}}\hat{B},H_n(W)\right) \leq O_P\left(\hat{\epsilon}_k^{(O)}( H_n(W))+\sqrt{\lambda  \left(\frac{\log k}{ \rho n}+\frac{k^2}{\rho n^2}\right)} + \lambda  \sqrt{\frac{k^2\log n}{n \epsilon}}+ \frac{\sqrt{\lambda}}{n \rho \epsilon}\right)
+\end{equation*}
+
+\end{theorem}
+The essential improvement is coming from improving Proposition 1 of \cite{Borgs2015} to the following proposition.
+\begin{proposition}\label{prop}
+Let $r \in [0,1]$, $Q \in [0,r]^{k \times k}$ be a symmetric matrix with vanishing diagonal and $A \sim \mathrm{Bern_0}(Q)$. If $\hat{B} \in \mathcal{B}_r$ satisfies 
+\begin{equation}\label{eq:condition}
+\mathrm{Score}\left(\hat{B},A\right) \geq \max_{B \in \mathcal{B}_r}[\mathrm{Score}\left(\hat{B},A\right)]-\nu^2
+\end{equation}
+for some $\nu>0$ then with probability at least $1-\exp\left(-\Omega(k \log n)\right)$
+\begin{equation*}
+\hat{\delta}_2\left(\hat{B},Q\right) \leq O\left(\epsilon_k^{(O)}(Q)+\nu+\sqrt{r \left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)}  \right)
+\end{equation*}
+and in particular,
+\begin{equation*}
+\|\hat{B}\|_2 \leq O\left(\|Q\|_2+\nu+\sqrt{r \left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)}  \right)
+\end{equation*}
+\end{proposition}
+
+
+
+
+\section{Proofs}
+
+\begin{proof} (of Proposition \ref{prop})
+Let $B_0 \in \mathcal{B}_r $ and  $\pi_0$ $k$-equipartition of $[n]$ such that 
+
+\begin{equation}\label{eq:tsyba1}
+\|(B_0)_{\pi_0}-A\|_2=\min_{B \in \mathcal{B}_r,\pi}\|B_{\pi} -A\|_2^2
+\end{equation} 
+From \cite{TsybK} we know that with probability at least $1-\exp\left(-\Omega(k \log n)\right)$
+\begin{equation}\label{eq:tsybakov}
+\|(B_0)_{\pi_0}-Q\|_2^2 =O\left(\hat{\epsilon}_k^{(O)}(Q)^2+r\left(\frac{\log k}{n}+\frac{k^2}{n^2}\right) \right)
+\end{equation}
+We first notice that equation (\ref{eq:condition}) implies that for some $\hat{\pi}$, $k$-equipartition of $[n]$ \begin{equation}\label{eq:us}
+\|\hat{B}_{\hat{\pi}}-A\|_2^2 \leq \min_{B \in \mathcal{B}_r,\pi}\|B_{\pi} -A\|_2^2 +\nu^2.
+\end{equation}
+
+
+Following an \textbf{identical} path as in the proof of \cite{TsybK} where from inequality (\ref{eq:tsyba1}) they prove inequality (\ref{eq:tsybakov}), it is easy to see that using (\ref{eq:condition}) we get again almost (\ref{eq:tsybakov}) with the only difference the addition of the parameter $\nu^2$ in the left hand side, that is with probability at least $1-\exp\left(-\Omega(k \log n)\right)$ \begin{equation}\label{eq:target}
+\|(\hat{B})_{\hat{\pi}}-Q\|_2^2 =O\left(\hat{\epsilon}_k^{(O)}(Q)^2+r\left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)+\nu^2 \right).
+\end{equation} This last inequality implies easily both of the desired results.
+
+For completeness we describe in more detail how we get the corresponding result following the exact same proof as in \cite{TsybK}. In \cite{TsybK} they establish 
+\begin{itemize}
+\item[(1)] With probability at least $1-\exp\left(-\Omega(k \log n)\right)$ for all $\pi$ $k$-partition of $[n]$,
+\begin{equation}\label{eq:24}
+<Q_{\pi}-Q,Q-A> \leq \frac{1}{16}\|Q_{\pi}-Q\|_2^2+O_P \left( r \frac{\log k}{n}\right)
+\end{equation}
+
+This follows from the probabilistic bound above of equation (25), page 10 in \cite{TsybK}.
+\item[(2)] With probability at least $1-\exp\left(-\Omega(k \log n)\right)$ for all $C \in \mathcal{B}_{r}$ and $\pi $ $k$-partition of $[n]$,
+\begin{equation}\label{eq:25}
+<C_{\pi},Q-A> = \frac{1}{16}\|C\|_2^2+O_P \left( r( \frac{\log k}{n}+\frac{k^2}{n^2}  )\right) 
+\end{equation}
+
+The proof is identical to the second part of the Proof of Proposition 2.3. (second paragraph and below) in \cite{TsybK} for $C_{\pi}$ equal to what they denote as $\hat{\Theta}^r-\tilde{\Theta}_{\hat{z}_r}$.
+
+
+%As in [Tsybakov] we first notice that f 
+%q$$<C_{\pi},Q-A> \lew  
+%Indeed we know that with probability at least (?) for all $\pi$ and for all $V \in C^*_\pi$ defined at the bottom of page 12 in [Tsybakov] where $\pi$ is denote by $\hat{z}_r$ there, the inequality
+%\begin{equation}\label{eq:32}
+%<V,Q-A> \leq \frac{1}{50}\|V\|_2^2+O_P \left( r( \frac{\log k}{n}+\frac{k^2}{n^2}  )\right).
+%\end{equation}
+% Now the same proof as for Lemma 4.1. in [Tsybakov] establishes the following result
+%\begin{lemma}
+%If $\|C_{\pi}\|_2 \geq \frac{2r}{n^2}$ then there exists a $D_{\pi} \in C^*_{\pi}$ with $\|C_{\pi}-D_{\pi}\|_2 \leq \frac{1}{4}\|C_{\pi}\|_2^$ and $\|C_{\pi}-D_{\pi}\|_{\infty} \leq r$.
+%\end{lemma}
+
+\end{itemize}
+
+
+We now choose $Q_{\pi_1}$ the best (wrt to $L_2$ norm) $k$-block approximation for $Q$ so that $\|Q_{\pi_1}-Q\|_2=\hat{\epsilon}_k^{(O)}(Q)$. Now (\ref{eq:us}) since $Q_{\pi_1} \in \mathcal{B}_r$ gives
+\begin{align*}
+\|\hat{B}_{\hat{\pi}}-A\|_2^2 \leq \|Q_{\pi_1}-A\|_2^2+\nu^2
+\end{align*} 
+which now adding and substracting $\hat{Q}$ inside the norm and expanding the 2-norms gives
+\begin{align*}
+\|\hat{B}_{\hat{\pi}}-Q\|_2^2 \leq \|Q_{\pi_1}-Q\|_2^2+\nu^2+2<Q_{\pi_1}-\hat{B}_{\hat{\pi}},Q-A>
+\end{align*} 
+or
+\begin{align*}
+\|\hat{B}_{\hat{\pi}}-Q\|_2^2 \leq \|Q_{\pi_1}-Q\|_2^2+\nu^2+2<Q_{\pi_1}-Q,Q-A>+2<Q-Q_{\hat{\pi}},Q-A>+2<(Q-\hat{B})_{\hat{\pi}},Q-A>.
+\end{align*} 
+Bounding now the first two inner products according to (\ref{eq:24}) and the last according to (\ref{eq:25}) we get with probability at least $1-\exp\left(-\Omega(k \log n)\right)$ the quantity $\|\hat{B}_{\hat{\pi}}-Q\|_2^2$ is at most
+
+\begin{align*}
+\|Q_{\pi_1}-Q\|_2^2+\nu^2+ \frac{2}{16}\left(\|Q_{\pi_1}-Q\|_2^2+\|Q_{\hat{\pi}}-Q\|_2^2+\|(Q-\hat{B})_{\hat{\pi}}\|_2^2 \right) + O_P \left( r( \frac{\log k}{n}+\frac{k^2}{n^2}  )\right)  
+\end{align*}
+or recalling the way $Q_{\pi_1}$ was chosen, $\|Q_{\pi_1}-Q\|_2=\hat{\epsilon}_k^{(O)}(Q)$, we conclude
+\begin{align*}
+\|\hat{B}_{\hat{\pi}}-Q\|_2^2 \leq \frac{1}{8}\left(\|Q_{\hat{\pi}}-Q\|_2^2+\|(Q-\hat{B})_{\hat{\pi}}\|_2^2 \right) + O_P \left( \hat{\epsilon}_k^{(O)}(Q)^2+ r( \frac{\log k}{n}+\frac{k^2}{n^2}  )+\nu^2\right) . 
+\end{align*}
+
+Now recall that $Q_{\pi}$ is the best $\pi$-block approximation in $L_2$ of $Q$. This implies $$\|Q_{\pi}-Q\|_2 \leq \|\hat{B}_{\hat{\pi}}-Q\|_2$$ and by triangle inequality  also $$\|(Q-\hat{B})_{\hat{\pi}}\|_2 \leq\|\hat{B}_{\hat{\pi}}-Q\|_2+\|Q_{\pi}-Q\|_2 \leq  2\|\hat{B}_{\hat{\pi}}-Q\|_2.$$ Hence putting the last inequalities together we have proven with probability at least (?), 
+\begin{align*}
+\|\hat{B}_{\hat{\pi}}-Q\|_2^2 \leq \frac{5}{8}\|\hat{B}_{\hat{\pi}}-Q\|_2^2 + O_P \left( \hat{\epsilon}_k^{(O)}(Q)^2+ r( \frac{\log k}{n}+\frac{k^2}{n^2}) + \nu^2 \right)  
+\end{align*}
+or 
+\begin{equation*}
+\|(\hat{B})_{\hat{\pi}}-Q\|_2^2 =O\left(\hat{\epsilon}_k^{(O)}(Q)^2+r\left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)+\nu^2 \right),
+\end{equation*}
+as we wanted.
+\end{proof}
+
+Here we present a proof for how Proposition \ref{prop} implies Theorem \ref{stronger}.
+\begin{proof} (of Theorem \ref{stronger})
+As in the beginning of the Proof of Theorem 5 in \cite{Borgs2015} with probability at least $1-O(\frac{\Lambda}{n})-e^{-\Omega(n \rho \epsilon)}$,  $\hat{B}$ satisfies (\ref{eq:condition}) for $Q=\rho H_n( W)$, $r=\lambda \rho$ and $\nu=O\left(\lambda \rho  \sqrt{\frac{k^2\log n}{n \epsilon}}\right)$.
+Therefore using Proposition \ref{prop} with probability at least $1-\exp(-\Omega( k\log n))-O(\frac{\Lambda}{n})-e^{-\Omega(n \rho \epsilon)}$ we know
+\begin{align*}
+&\hat{\delta}_2\left(\hat{B},\rho H_n(W)\right) \leq O\left(\epsilon_k^{(O)}(\rho H_n(W))+\sqrt{\lambda \rho \left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)} + \lambda \rho  \sqrt{\frac{k^2\log n}{n \epsilon}}\right)\\
+\text{ or }&  \hat{\delta}_2\left(\frac{1}{\rho}\hat{B}, H_n(W)\right) \leq O\left(\hat{\epsilon}_k^{(O)}(H_n(W))+\sqrt{\lambda  \left(\frac{\log k}{\rho n}+\frac{k^2}{\rho n^2}\right)} + \lambda  \sqrt{\frac{k^2\log n}{n \epsilon}}\right).
+\end{align*}
+Using triangle inequality this easily gives
+\begin{align*}
+ \hat{\delta}_2\left(\frac{1}{\hat{\rho}}\hat{B}, H_n(W)\right) \leq O\left(\hat{\epsilon}_k^{(O)}(H_n(W))+\sqrt{\lambda  \left(\frac{\log k}{\rho n}+\frac{k^2}{\rho n^2}\right)} + \lambda  \sqrt{\frac{k^2\log n}{n \epsilon}}+\|B\|_2 |\frac{\rho}{\hat{\rho}}-1|\right)\\
+\end{align*}
+Now Proposition \ref{prop} gives that with probability at least $1-e^{-\Omega(n \rho \epsilon)}$ it holds  $$\|B\|_2  \leq O( \|H_n(W)\|_2+\lambda \rho \sqrt{\frac{k^2\log n}{n \epsilon}}+\sqrt{\lambda \rho \left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)}  ).$$
+Because $\|W\|_1=1,\|W\|_{\infty} \leq \lambda$ we have $\|H_n(W)\|_2 \leq O_P( \sqrt{\lambda})$.  Therefore $\hat{\delta}_2\left(\frac{1}{\hat{\rho}}\hat{B},H_n(W)\right)$ is at most
+
+\begin{equation*}
+O\left(\hat{\epsilon}_k^{(O)}( H_n(W))+\sqrt{\lambda  \left(\frac{\log k}{ \rho n}+\frac{k^2}{\rho n^2}\right)} + \lambda  \sqrt{\frac{k^2\log n}{n \epsilon}}+(\sqrt{\lambda}+\lambda \rho \sqrt{\frac{k^2\log n}{n \epsilon}}+\sqrt{\lambda \rho \left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)} ) | \frac{\rho}{\hat{\rho}}-1|\right)
+\end{equation*}
+
+Since with probability $1-e^{-\Omega(n \rho \epsilon)} $ Lemma 8 of \cite{Borgs2015} holds we have with the same probability $| \frac{\rho}{\hat{\rho}}-1|=O( \min\{\frac{1}{n \rho \epsilon}+\sqrt{\frac{\lambda}{n }},\frac{1}{\rho}\})$. Hence with probability $1-e^{-\Omega(n \rho \epsilon)} $ using also our upper bound on $\epsilon$ we have,
+$$\sqrt{\lambda}| \frac{\rho}{\hat{\rho}}-1| \leq O(\frac{\sqrt{\lambda}}{n \rho \epsilon}+\frac{\lambda}{\sqrt{n} })=O(\frac{\sqrt{\lambda}}{n \rho \epsilon}+\lambda  \sqrt{\frac{k^2\log n}{n \epsilon}})$$ and
+$$(\lambda \rho \sqrt{\frac{k^2\log n}{n \epsilon}}+\sqrt{\lambda \rho \left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)} ) | \frac{\rho}{\hat{\rho}}-1| \leq O(\sqrt{\lambda  \left(\frac{\log k}{\rho n}+\frac{k^2}{\rho n^2}\right)} + \lambda  \sqrt{\frac{k^2\log n}{n \epsilon}})$$ Combining the last three inequalities together we get that with probability at least $1-\exp(-\Omega( k\log n))-O(\frac{\Lambda}{n})-O(e^{-\Omega(n \rho \epsilon)}),$
+\begin{equation*}
+\hat{\delta}_2\left(\frac{1}{\hat{\rho}}\hat{B},H_n(W)\right) \leq O\left(\hat{\epsilon}_k^{(O)}( H_n(W))+\sqrt{\lambda  \left(\frac{\log k}{ \rho n}+\frac{k^2}{\rho n^2}\right)} + \lambda  \sqrt{\frac{k^2\log n}{n \epsilon}}+ \frac{\sqrt{\lambda}}{n \rho \epsilon}\right),
+\end{equation*}as we wanted.
+
+
+\end{proof}
+
+\bibliographystyle{plain}
+\bibliography{bibliography}
+\end{document}

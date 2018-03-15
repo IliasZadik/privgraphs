@@ -1,0 +1,329 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage{amsmath,amsthm,amsfonts,amssymb,mathrsfs,bm}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,bm,wasysym}
+%\usepackage{marvosym}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{verbatim}
+\usepackage{epsfig}
+%\usepackage{showlabels}
+
+
+
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%For equality in distribution
+
+
+%\usepackage{ccfonts}
+%\usepackage{euler}
+%\usepackage{txfonts}
+%\usepackage{mathptmx}
+%\usepackage{cmbright}
+%\usepackage{lucidabr}
+%%\usepackage{fourier}
+
+%\usepackage[english,greek]{babel}
+%\usepackage[iso-8859-7]{inputenc}
+
+%for soda
+\topmargin 0in
+\oddsidemargin .01in
+\textwidth 6.5in
+\textheight 9in
+\evensidemargin 1in
+\addtolength{\voffset}{-.6in}
+\addtolength{\textheight}{0.22in}
+\parskip \medskipamount
+\parindent	0pt
+
+%\oddsidemargin	0.635cm
+%\textwidth	15.3cm
+%\topmargin	-1cm
+%\textheight	23cm
+%\parindent	0pt
+%\parskip 	\bigskipamount
+
+%%%%%%%%%%%THEOREMS%%%%%%%%%%%
+
+\newtheorem{assumption}{Assumption}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{assumption}[theorem]{Assumption}
+\numberwithin{equation}{section}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{defn}{Definition}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{property}{Property}[theorem]
+%\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{claim}[theorem]{Claim}
+
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\numberwithin{equation}{section}
+
+
+%%%%%%%%%%%LETTERS%%%%%%%%%%%
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\bP{\mathbb{P}}
+\def\S{\mathbb{S}}
+\def\AA{\mathcal{A}}
+\def\F{\mathcal{F}}
+\def\EE{\mathcal{E}}
+\def\B{\mathcal{B}}
+\def\LL{\mathcal{L}}
+\def\NN{\mathcal{N}}
+\def\PP{\mathcal{P}}
+\def\T{\mathcal{T}}
+\def\tr{{\rm{tr}}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\def\cprime{$'$}
+
+%\allowdisplaybreaks
+
+%%%%%%%%%%%SYMBOLS & OPERATORS%%%%%%%%%%%
+\newcommand{\1}{{\text{\Large $\mathfrak 1$}}}
+
+\newcommand{\comp}{\raisebox{0.1ex}{\scriptsize $\circ$}}
+%\newcommand{\cadlag}{{c\`adl\`ag} }
+\newcommand{\bin}{\operatorname{Bin}}
+%\newcommand{\var}{\operatorname{var}}
+\newcommand{\cov}{\operatorname{Cov}}
+%\renewcommand{\limsup}{\varlimsup}
+%\renewcommand{\liminf}{\varliminf}
+\newcommand{\eqdist}{\stackrel{\text{d}}{=}}
+\newcommand{\dirac}{\text{\large $\mathfrak d$}}
+\newcommand{\ud}{\mathrm{d}}
+\newcommand{\vol}{\mathrm{vol}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\I}{_{\text{\sc i}}}
+\newcommand{\II}{_{\text{\sc ii}}}
+\newcommand{\III}{_{\text{\sc iii}}}
+\newcommand{\IV}{_{\text{\sc iv}}}
+\newcommand{\IVp}{_{\text{{\sc iv},p}}}
+\newcommand{\IVf}{_{\text{{\sc iv},f}}}
+\def\nn{\text{\tiny $N$}}
+\newcommand{\ttt}{\widetilde}
+\def\Prob{{\mathbf P}}
+\def\C{{\mathcal C}}
+\newcommand{\tdet}{T}
+\newcommand{\sdet}{S}
+\newcommand{\til}{\widetilde}
+
+%\newcommand{\taver}{t_{\mathrm{ave}}}
+%\newcommand{\tmix}{t_{\mathrm{mix}}}
+%\newcommand{\tmixlazy}{\tau_1(\mathrm{lazy})}
+%\newcommand{\tg}{t_{\mathrm{G}}}
+%\newcommand{\tsep}{t_{\mathrm{sep}}}
+%\newcommand{\tl}{t_{\mathrm{L}}}
+%\newcommand{\thit}{t_{\mathrm{H}}}
+%%\newcommand{\tstop}{t_{\text{\Stopsign}}}
+%\newcommand{\tmax}{t_{\mathrm{hit}}}
+%\newcommand{\tstop}{t_{\mathrm{stop}}}
+%\newcommand{\tct}{t_{\mathrm{cts}}}
+%\newcommand{\tprod}{t_{\mathrm{prod}}}
+%\newcommand{\tces}{t_{\mathrm{Ces}}}
+%\newcommand{\tmov}{t_{\mathrm{HIT}}}
+%\newcommand{\trel}{t_{\mathrm{rel}}}
+
+\newcommand{\pr}[1]{\mathbb{P}\!\left(#1\right)}
+\newcommand{\E}[1]{\mathbb{E}\!\left[#1\right]}
+\newcommand{\estart}[2]{\mathbb{E}_{#2}\!\left[#1\right]}
+\newcommand{\prstart}[2]{\mathbb{P}_{#2}\!\left(#1\right)}
+\newcommand{\prcond}[3]{\mathbb{P}_{#3}\!\left(#1\;\middle\vert\;#2\right)}
+\newcommand{\econd}[2]{\mathbb{E}\!\left[#1\;\middle\vert\;#2\right]}
+\newcommand{\econds}[3]{\mathbb{E}_{#3}\!\left[#1\;\middle\vert\;#2\right]}
+
+\newcommand{\var}[1]{\operatorname{Var}\!\left(#1\right)}
+\newcommand{\vars}[2]{\operatorname{Var}_{#2}\!\left(#1\right)}
+
+
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\fract}[2]{{\textstyle\frac{#1}{#2}}}
+\newcommand{\tn}{|\kern-.1em|\kern-0.1em|}
+
+\newcommand{\enk}[1]{\estart{#1}{n_k}}
+\newcommand{\vnk}[1]{\operatorname{Var}_{n_k}\!\left(#1\right)}
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\2}[1]{{\text{\Large $\mathfrak 1$}\!\left(#1\right)}}
+
+
+% Martin's macros
+\newcommand\be{\begin{equation}}
+\newcommand\ee{\end{equation}}
+\def\bZ{\mathbb{Z}}
+\def\Reff{R_{\rm{eff}}}
+\def\bP{\mathbb{P}}
+\def\Ca{ {\mathop{\rm Comb}}(\Z, \alpha)}
+\def\eps{\varepsilon}
+\def\p{\Psi}
+
+
+
+
+
+
+
+
+\usepackage{float}
+\author{
+{\sf Christian Borgs}\thanks{Microsoft Research New England e-mail: {\tt Christian.Borgs@microsoft.com}. }
+\and
+{\sf Jennifer Chayes}\thanks{Microsoft Research New England e-mail: {\tt jchayes@microsoft.com}.}
+\and
+{\sf Adam Smith}\thanks{Boston University; e-mail: {\tt ads22@bu.edu}. }
+\and
+{\sf Ilias Zadik}\thanks{MIT; e-mail: {\tt izadik@mit.edu}. Research done in part while an intern at Microsoft Research New England. }
+}
+
+\begin{document}
+
+
+
+\title{An Observation on the Extension\\ of Private Algorithms}
+\date{}
+
+
+
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+\section{Introduction}
+
+1) Data analysis+differential privacy. Many many papers.
+
+
+2) Trade-off accuracy/privacy. One way to proceed is to do a modeling assumption and be ask for accuracy there. Many papers.
+
+3) In this note, we show extension is always possible. Not necessarily efficient.
+
+4) Shall we mention Lipshitz connection?
+
+
+\section{The Extension Lemma}
+
+We first state the definition of $\epsilon$-differential privacy.\begin{definition}
+A randomized algorithm $\mathcal{A}$ is $\epsilon$-differential private if for all subsets in the output space $S \subseteq \mathbb{R}^n$ and data-sets $D_1,D_2$ in the input metric $(\mathcal{M},d)$,  $$\mathbb{P}\left(\mathcal{A}(D_1) \in S\right) \leq \exp\left[\epsilon d(D_1,D_2)\right]\mathbb{P}\left(\mathcal{A}(D_2) \in S\right).$$
+\end{definition}
+
+\subsection*{The Model}
+Let $n \in \mathbb{N}$ and $\epsilon>0$. We assume that the analyst's objective is to estimate a certain quantity which takes values in $ \mathbb{R}^n$ from input data which take values in a metric space $(\mathcal{M},d)$. The analyst is assumed to use for this task a randomized algorithm $\mathcal{A}$ which should be \begin{itemize}
+\item[(1)] as highly \textbf{accurate} as possible for input data belonging in some \textit{hypothesis set} $\mathcal{H} \subseteq \mathcal{M}$;
+
+\item[(2)] $\epsilon$-\textbf{differentially private} on the whole metric space of input data $(M,d)$.
+\end{itemize}For simplicity throughout the note we make the following assumption.\begin{assumption} For any randomized algorithm $\mathcal{A}$ and any input data-set $D$, the law of $\mathcal{A}(D)$ corresponds to a continuous probability distribution in $\mathbb{R}^n$, i.e. it has a probability density function. \end{assumption}
+
+
+
+%\subsection*{Privacy is Equivalent with a Lipshitz Condition}
+%In this subsection we describe an equivalent reformulation of $\epsilon$-differential privacy. Note that any randomized algorithm $\mathcal{A}$ under our assumptions is a mapping $\mathcal{A} : \mathcal{M} \rightarrow \mathcal{CP}(\mathbb{R}^n,\mathcal{B}_n)$, where $\mathcal{B}_n$ is the Borel-$\sigma$ field in $\mathbb{R}^n$ and $\mathcal{CP}(\mathbb{R}^n,\mathcal{B}_n)$ is the set of continuous probability distributions on $(\Omega,\mathcal{B}_n)$. Endow now $ \mathcal{CP}(\mathbb{R}^n,\mathcal{B}_n)$ with the maximum-divergence metric $D_{\infty}$ which is defined as following; for $ \mu,\mu'\in\mathcal{CP}(\Omega,\mathcal{B}_n)$ their maximum-divergence is $$D_{\infty}(\mu,\mu'):=\sup_{S \in \mathcal{B}_n} |\log \frac{\mu(S)}{\mu'(S)}|,$$where $\frac{0}{0}:=0$ and $\frac{x}{0}:=+\infty$ for $x>0$. We establish the following result. \begin{proposition}\label{equiv}
+%Suppose $\mathcal{A}$ is a randomized algorithm. Then $\mathcal{A}$ is $\epsilon$-differential private if and only if the mapping between metric spaces $\mathcal{A}: (M,d) \rightarrow (\mathcal{CP}(\mathbb{R}^n,\mathcal{B}_n),D_{\infty})$ is $\epsilon$-Lipschitz. 
+%
+%\end{proposition}
+%
+%\begin{proof}
+%Observe that, under the assumption $\frac{0}{0}:=0$ and $\frac{x}{0}:=+\infty$ for $x>0$, for any $D_1,D_2 \in \mathcal{M}$ and $S \in \mathcal{B}_n$, $$\mathbb{P}\left(\mathcal{A}(D_1) \in S\right) \leq \exp\left[\epsilon d(D_1,D_2)\right]\mathbb{P}\left(\mathcal{A}(D_2) \in S\right)$$is equivalent with $$\log \frac{\mathcal{A}(D_1) (S)}{\mathcal{A}(D_2)(S)} \leq \epsilon d(D_1,D_2).$$Since $D_1,D_2$ can be used interchangeably we conclude that $\epsilon$-differential privacy is equivalent with the statement that for any $D_1,D_2 \in \mathcal{M}$,  $$D_{\infty}(\mathcal{A}(D_1),\mathcal{A}(D_2)) =\sup_{S \in \mathcal{B}_n}|\log \frac{\mathcal{A}(D_1) (S)}{\mathcal{A}(D_2)(S)}| \leq \epsilon d(D_1,D_2),$$or that the mapping between metric spaces $\mathcal{A}: (M,d) \rightarrow (\mathcal{CP}(\mathbb{R}^n,\mathcal{B}_n),D_{\infty})$ is $\epsilon$-Lipschitz.   
+%\end{proof} 
+
+\subsection*{Extending Private Algorithms}
+
+
+
+In this subsection we state the following result. Consider an arbitrary $\epsilon$-differentially private algorithm defined on input belonging in some set $\mathcal{H} \subset \mathcal{M}.$ We show that it \textbf{can be always extended} to a $2\epsilon$-differentially private algorithm defined for arbitrary input data from $\mathcal{M}$ with the property that if the input data belongs in $\mathcal{H}$ the distribution of output values is the same with the original algorithm. We state formally the result. 
+
+\begin{proposition}\label{extension}
+Let $\hat{\mathcal{A}}$ be a randomized algorithm designed for input from $\mathcal{H} \subseteq \mathcal{M}$ satisfying Assumption 1. Then there exists a randomized algorithm $\mathcal{A}$ defined on the whole input space $\mathcal{M}$ which is $2\epsilon$-differentially private and satisfies that for every $D \in \mathcal{H}$, $\mathcal{A}(D) \overset{d}{=}  \hat{\mathcal{A}}(D)$.
+\end{proposition}
+
+\section{Applications}
+
+
+In this section, we describe two simple applications of Proposition \ref{extension}. 
+\subsection*{Private Estimation of the Mean of a Distribution}
+Suppose that for some constant $C>0$, the analyst receives $n$ iid samples $X=(X_1,\ldots,X_n)$ from a subGaussian distribution $\mathcal{D}$ with unknown mean $\mu \in [-C,C]$ and subGaussian norm bounded by $1$. For simplicity, let us denote the class of all such distributions as $\mathcal{C}\left(C\right)$. The objective is to find the rate of estimating the mean of the distribution in an $\epsilon$-differentially private way,
+\begin{equation*}
+\mathcal{R}=\min_{ \mathcal{A} \text{   } \epsilon-\text{diff.priv.}} \max_{ \mathcal{D} \in \mathcal{C}\left(C\right)} \mathbb{E}_{X \sim \mathcal{D}^{n}.}[|\mathcal{A}(X)-\mu|]
+\end{equation*}The $\epsilon$-differential privacy here should be understood as with respect to $\mathbb{R}^n$ endowed with the Hamming distance $d_H$. Note that to the analysis of this rate coincides with the setting we discussed in the previous section. The optimal rate $\mathcal{R}$ corresponds to a randomized algorithm $\mathcal{A}$ which accurately estimates the mean of a distribution $\mathcal{D} \in \mathcal{C}\left(C\right)$ from input $X$ with iid entries from this distribution and simultaneously needs to satisfy $\epsilon$-differential privacy for every pair of input values $X,X' \in (\mathbb{R}^n,d_H)$.
+
+It is known that $\mathcal{R} = \Omega\left( \frac{1}{\sqrt{n}}+ \frac{1}{n \epsilon} \right).$ Using Proposition \ref{extension} we prove a corresponding upper bound and characterize exactly the rate, up to a $\sqrt{\log n}$ factor.
+\begin{corollary}\label{cor1}
+Under the above assumptions, $$\mathcal{R} = O\left( \frac{1}{\sqrt{n}}+ \frac{\sqrt{\log n}}{n \epsilon} \right).$$
+\end{corollary}
+
+
+We describe here the private algorithm which gives the upper bound. We start with describing the standard way of designing an $\epsilon$-differentially private estimator from input $X=(X_1,X_2,\ldots,X_n)$ by adding Laplace noise. Given $X$, the algorithms consists of first computing the empirical mean $m(X)=\sum_{i=1}^n X_i/n$ and then adding Laplace noise to $m(X)$ with parameter $\Delta m / \epsilon$, where $\Delta m:=\max_{X,X'\in \mathbb{R}^n,d_H(X,X')=1} | m(X)-m(X')|$.
+
+
+Unfortunately in our setting this technique is not meaningful as it can be easily deduced that $\Delta m=\infty$. Note though that the pair of $X,X'$ for which $\Delta m$ becomes arbitrarily large are ``far" from the confidence regions for samples drawed from distributions in $\mathcal{C}\left(C\right)$. In particular, if for some $\epsilon$, $\mathcal{H}:=\{X \in \mathbb{R}^n | \|X\|_{\infty} \leq C+\sigma \sqrt{2(1+\epsilon) \log n}\}$, then $$\mathbb{P}_{X \sim \mathcal{D}^n} \left( X \in \mathcal{H}\right) =1-o_n(1).$$This suggests that we could restrict ourselves to the vectors in $\mathcal{H}$ and add Laplace noise to $m(X)$ with parameter $\Delta_{\mathcal{H}} m / \epsilon$, where $\Delta_{\mathcal{H}} m:=\max_{X,X'\in \mathcal{H},d_H(X,X')=1} | m(X)-m(X')|$. Since $\Delta_{\mathcal{H}} m< \infty$ this is an $\epsilon$-differentially private algorithm for all inputs from $\mathcal{H}$. Proposition \ref{extension} allows us to extend this algorithm to be $2 \epsilon$-differentially private for all vectors $X \in \mathbb{R}^n$ by keeping the same accuracy level for input from $\mathcal{H}$. This is the algorithm that gives the upper bound for Corollary \ref{cor1}.
+
+
+[Working on this now]
+
+Possible applications:
+\begin{itemize}
+\item iid subgaussian column data, estimate the mean.
+
+\item iiid Subgaussian measurement matrix and noise. Then private rate for the least squares problem for linear regression.
+\end{itemize}
+
+
+\section{Proof of Proposition \ref{extension}}
+\begin{proof} For a continuous distribution on $\mathbb{R}^n$, $\mathcal{D}$, denote by $f_{\mathcal{D}}$ its density function. We start with a simple lemma.
+\begin{lemma}\label{lem}
+Let $\mathcal{A}'$ be a randomized algorithm designed for input from $\mathcal{H}' \subseteq \mathcal{M}$ which satisfies Assumption 1. Then $\mathcal{A}'$ is $\epsilon$-differentially private if and only if  for any $D,D' \in \mathcal{H}$ and $x \in \mathbb{R}^n$ \begin{equation}\label{prime}  f_{\mathcal{A}'(D)}(x) \leq \exp \left(\epsilon d(D,D') \right) f_{\mathcal{A}'(D')}(x).   \end{equation} 
+\end{lemma}
+\begin{proof}
+For the one direction, suppose $\mathcal{A}'$ satisfies (\ref{prime}). Then for any Borel subset $S \in \mathcal{B}_n$ we obtain
+ \begin{align*} \mathbb{P}\left(\mathcal{A}'(D) \in S \right) &=\int_{x \in S}  f_{\mathcal{A}'(D)}(x)dx \\
+& \leq \exp \left(\epsilon d(D,D') \right) \int_{x \in S} f_{\mathcal{A}'(D')}(x) dx\\
+&= \exp \left(\epsilon d(D,D') \right)\mathbb{P}\left(\mathcal{A}'(D) \in S \right).
+ \end{align*}For the other direction, let $x \in \mathbb{R}^n$. Then if $B_{\infty}(x,\delta)$ is the $L_{\infty}$-ball in $\mathbb{R}^n$ with center $x$ and radius $\delta>0$ it holds
+\begin{align*} 
+f_{\mathcal{A'}(D)}(x)&=\lim_{\delta \rightarrow 0^{+}} \frac{1}{(2\delta)^n} \mathbb{P}\left(\mathcal{A}'(D) \in B_{\infty}(x,\delta) \right)\\
+& \leq  \exp \left(\epsilon d(D,D') \right) \lim_{\delta \rightarrow 0^{+}} \frac{1}{(2\delta)^n} \mathbb{P}\left(\mathcal{A}'(D') \in B_{\infty}(x,\delta) \right)\\
+&=f_{\mathcal{A'}(D)}(x).
+\end{align*}The proof of the Lemma is complete.
+\end{proof} We define now the following randomized algorithm $\mathcal{A}$. For every $D \in \mathcal{M}$, $\mathcal{A}(D)$ samples a vector in $\mathbb{R}^n$ from the continuous distribution with density proportional to $$\inf_{D' \in \mathcal{H}} \left[ \exp\left(\epsilon d(D,D')\right) f_{\hat{\mathcal{A}}(D')}(\cdot) \right],$$ that is for every $x \in \mathbb{R}^n$, \begin{equation*}f_{\mathcal{A}(D)}(x) =\frac{1}{Z_D} \inf_{D' \in \mathcal{H}} \left[ \exp\left(\epsilon d(D,D')\right) f_{\hat{\mathcal{A}}(D')}(x) \right],\end{equation*} where \begin{equation*}Z_D:=\int_{x \in \mathbb{R}^n} \inf_{D' \in \mathcal{H}} \left[ \left(\epsilon d(D,D')\right) f_{\hat{\mathcal{A}}(D)'}(x) \right] dx.\end{equation*}
+
+We first prove that $\mathcal{A}$ is $2\epsilon$-differentially private. Using Lemma \ref{lem} it suffices to prove that for any $D_1,D_2 \in \mathcal{H}$ and $x \in \mathbb{R}^n$,
+ \begin{align*}
+f_{\mathcal{A}(D_1)}(x) \leq \exp \left(2 \epsilon d(D_1,D_2)\right) f_{\mathcal{A}(D_2)}(x).
+\end{align*}Let $D_1,D_2 \in \mathcal{M}$ and $x \in \mathbb{R}^n$. Using triangle inequality we obtain \begin{align*}\inf_{D' \in \mathcal{H}} \left[ \exp \left( \epsilon d(D_1,D')\right) f_{\hat{\mathcal{A}}(D')}(x) \right] & \leq \inf_{D' \in \mathcal{H}} \left[ \exp\left(\epsilon \left[d(D_1,D_2)+d(D_2,D')\right] \right) f_{\hat{\mathcal{A}}(D')}(x) \right]\\
+&=\exp \left( \epsilon d(D_1,D_2)\right) \inf_{D' \in \mathcal{H}} \left[ \exp \left(\epsilon d(D,D')\right) f_{\hat{\mathcal{A}}(D')}(x) \right].
+\end{align*}which implies that for any $D_1,D_2 \in \mathcal{M}$, 
+\begin{align*}
+Z_{D_1}&=\int_{x \in \mathbb{R}^n} \inf_{D' \in \mathcal{H}} \left[ \exp\left(\epsilon d(D_1,D')\right) f_{\hat{\mathcal{A}}(D')}(x) \right] dx \\
+&\leq \exp\left(\epsilon d(D_1,D_2) \right)\int_{x \in \mathbb{R}^n} \inf_{D' \in \mathcal{H}} \left[ \exp \left( \epsilon d(D_2,D') \right) f_{\hat{\mathcal{A}}(D')}(x) \right] dx\\
+&=\exp \left( \epsilon d(D_1,D_2) \right) Z_{D_2}. 
+\end{align*}Therefore we obtain that for any $D_1,D_2 \in \mathcal{H}$ and $x \in \mathbb{R}^n$,
+ \begin{align*}
+f_{\mathcal{A}(D_1)}(x) &=\frac{1}{Z_{D_1}} \inf_{D' \in \mathcal{H}} \left[ \exp \left( \epsilon d(D_1,D') \right) f_{\hat{\mathcal{A}}(D')}(x) \right] \\
+&\leq \frac{1}{\exp\left(-\epsilon d(D_2,D_1)\right)Z_{D_2}}\exp\left(\epsilon d(D_1,D_2)\right) \inf_{D' \in \mathcal{H}}  \left[ \exp \left( \epsilon d(D_2,D') \right) f_{\hat{\mathcal{A}}(D')}(x) \right] \\
+&=\exp \left(2 \epsilon d(D_1,D_2)\right) \frac{1}{Z_{D_2}} \inf_{D' \in \mathcal{H}}  \left[ \exp \left( \epsilon d(D_2,D') \right) f_{\hat{\mathcal{A}}(D')}(x) \right]\\
+&=\exp \left(2 \epsilon d(D_1,D_2)\right) f_{\mathcal{A}(D_2)}(x),
+\end{align*}which proves that $\mathcal{A}$ is $2\epsilon$-differentially private. 
+
+Now we prove that for every $D \in \mathcal{H}$, $\mathcal{A}(D) \overset{d}{=}  \hat{\mathcal{A}}(D)$. Consider an arbitrary $D \in \mathcal{H}$. From Lemma \ref{lem} we obtain that $\hat{\mathcal{A}}$ is $\epsilon$-differentially private which implies that for any $D,D' \in \mathcal{H}$ and $x \in \mathbb{R}^n$ \begin{equation}  f_{\hat{\mathcal{A}}(D)}(x) \leq \exp \left(\epsilon d(D,D') \right) f_{\hat{\mathcal{A}}(D')}(x).   \end{equation}Observing that the above inequality holds as equality if $D'=D$ we obtain that for any $D \in \mathcal{H}$ and $x \in \mathbb{R}^n$ it holds $$f_{\hat{\mathcal{A}}(D)}(x)=\inf_{D' \in \mathcal{H}}  \left[ \exp \left( \epsilon d(D,D') \right) f_{\hat{\mathcal{A}}(D')}(x) \right].$$ Since $f_{\hat{\mathcal{A}}(D)}$ is a density function we derive that it holds $Z_{D}:=\int_{x \in \mathbb{R}^n} f_{\hat{\mathcal{A}}(D)}(x) dx=1$ and therefore for all $x \in \mathbb{R}^n$, $$ f_{\hat{\mathcal{A}}(D)}(x)=f_{\mathcal{A}(D)}(x).$$ This concludes the proof that $\mathcal{A}(D) \overset{d}{=}  \hat{\mathcal{A}}(D)$ as needed. 
+\end{proof}
+
+\section{Discussion and open problems}
+
+
+
+\end{document}

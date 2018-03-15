@@ -1,0 +1,398 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage{amsmath,amsthm,amsfonts,amssymb,mathrsfs,bm}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,bm,wasysym}
+%\usepackage{marvosym}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{verbatim}
+\usepackage{epsfig}
+%\usepackage{showlabels}
+
+%\usepackage{ccfonts}
+%\usepackage{euler}
+%\usepackage{txfonts}
+%\usepackage{mathptmx}
+%\usepackage{cmbright}
+%\usepackage{lucidabr}
+%%\usepackage{fourier}
+
+%\usepackage[english,greek]{babel}
+%\usepackage[iso-8859-7]{inputenc}
+
+%for soda
+\topmargin 0in
+\oddsidemargin .01in
+\textwidth 6.5in
+\textheight 9in
+\evensidemargin 1in
+\addtolength{\voffset}{-.6in}
+\addtolength{\textheight}{0.22in}
+\parskip \medskipamount
+\parindent	0pt
+
+%\oddsidemargin	0.635cm
+%\textwidth	15.3cm
+%\topmargin	-1cm
+%\textheight	23cm
+%\parindent	0pt
+%\parskip 	\bigskipamount
+
+%%%%%%%%%%%THEOREMS%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\numberwithin{equation}{section}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{defn}{Definition}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{property}{Property}[theorem]
+%\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{claim}[theorem]{Claim}
+
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\numberwithin{equation}{section}
+
+
+%%%%%%%%%%%LETTERS%%%%%%%%%%%
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\bP{\mathbb{P}}
+\def\S{\mathbb{S}}
+\def\AA{\mathcal{A}}
+\def\F{\mathcal{F}}
+\def\EE{\mathcal{E}}
+\def\B{\mathcal{B}}
+\def\LL{\mathcal{L}}
+\def\NN{\mathcal{N}}
+\def\PP{\mathcal{P}}
+\def\T{\mathcal{T}}
+\def\tr{{\rm{tr}}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\def\cprime{$'$}
+
+%\allowdisplaybreaks
+
+%%%%%%%%%%%SYMBOLS & OPERATORS%%%%%%%%%%%
+\newcommand{\1}{{\text{\Large $\mathfrak 1$}}}
+
+\newcommand{\comp}{\raisebox{0.1ex}{\scriptsize $\circ$}}
+%\newcommand{\cadlag}{{c\`adl\`ag} }
+\newcommand{\bin}{\operatorname{Bin}}
+%\newcommand{\var}{\operatorname{var}}
+\newcommand{\cov}{\operatorname{Cov}}
+%\renewcommand{\limsup}{\varlimsup}
+%\renewcommand{\liminf}{\varliminf}
+\newcommand{\eqdist}{\stackrel{\text{d}}{=}}
+\newcommand{\dirac}{\text{\large $\mathfrak d$}}
+\newcommand{\ud}{\mathrm{d}}
+\newcommand{\vol}{\mathrm{vol}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\I}{_{\text{\sc i}}}
+\newcommand{\II}{_{\text{\sc ii}}}
+\newcommand{\III}{_{\text{\sc iii}}}
+\newcommand{\IV}{_{\text{\sc iv}}}
+\newcommand{\IVp}{_{\text{{\sc iv},p}}}
+\newcommand{\IVf}{_{\text{{\sc iv},f}}}
+\def\nn{\text{\tiny $N$}}
+\newcommand{\ttt}{\widetilde}
+\def\Prob{{\mathbf P}}
+\def\C{{\mathcal C}}
+\newcommand{\tdet}{T}
+\newcommand{\sdet}{S}
+\newcommand{\til}{\widetilde}
+
+%\newcommand{\taver}{t_{\mathrm{ave}}}
+%\newcommand{\tmix}{t_{\mathrm{mix}}}
+%\newcommand{\tmixlazy}{\tau_1(\mathrm{lazy})}
+%\newcommand{\tg}{t_{\mathrm{G}}}
+%\newcommand{\tsep}{t_{\mathrm{sep}}}
+%\newcommand{\tl}{t_{\mathrm{L}}}
+%\newcommand{\thit}{t_{\mathrm{H}}}
+%%\newcommand{\tstop}{t_{\text{\Stopsign}}}
+%\newcommand{\tmax}{t_{\mathrm{hit}}}
+%\newcommand{\tstop}{t_{\mathrm{stop}}}
+%\newcommand{\tct}{t_{\mathrm{cts}}}
+%\newcommand{\tprod}{t_{\mathrm{prod}}}
+%\newcommand{\tces}{t_{\mathrm{Ces}}}
+%\newcommand{\tmov}{t_{\mathrm{HIT}}}
+%\newcommand{\trel}{t_{\mathrm{rel}}}
+
+\newcommand{\pr}[1]{\mathbb{P}\!\left(#1\right)}
+\newcommand{\E}[1]{\mathbb{E}\!\left[#1\right]}
+\newcommand{\estart}[2]{\mathbb{E}_{#2}\!\left[#1\right]}
+\newcommand{\prstart}[2]{\mathbb{P}_{#2}\!\left(#1\right)}
+\newcommand{\prcond}[3]{\mathbb{P}_{#3}\!\left(#1\;\middle\vert\;#2\right)}
+\newcommand{\econd}[2]{\mathbb{E}\!\left[#1\;\middle\vert\;#2\right]}
+\newcommand{\econds}[3]{\mathbb{E}_{#3}\!\left[#1\;\middle\vert\;#2\right]}
+
+\newcommand{\var}[1]{\operatorname{Var}\!\left(#1\right)}
+\newcommand{\vars}[2]{\operatorname{Var}_{#2}\!\left(#1\right)}
+
+
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\fract}[2]{{\textstyle\frac{#1}{#2}}}
+\newcommand{\tn}{|\kern-.1em|\kern-0.1em|}
+
+\newcommand{\enk}[1]{\estart{#1}{n_k}}
+\newcommand{\vnk}[1]{\operatorname{Var}_{n_k}\!\left(#1\right)}
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\2}[1]{{\text{\Large $\mathfrak 1$}\!\left(#1\right)}}
+
+
+% Martin's macros
+\newcommand\be{\begin{equation}}
+\newcommand\ee{\end{equation}}
+\def\bZ{\mathbb{Z}}
+\def\Reff{R_{\rm{eff}}}
+\def\bP{\mathbb{P}}
+\def\Ca{ {\mathop{\rm Comb}}(\Z, \alpha)}
+\def\eps{\varepsilon}
+\def\p{\Psi}
+
+
+
+
+\begin{document}
+\section{Differential Privacy on graphs}
+
+
+Consider $(\mathcal{G}_n,\delta_V)$ the set of all graphs with $n$ vertices treated as a metric space with the vertex-distance and $(\mathcal{M},D_{\infty})$ the set of probability measures in $[0,1]$ with the Borel $\sigma$-field treated as metric space with the $D_{\infty}$ distance. We remind that for measures $ \mu,\mu'$, $D_{\infty}(\mu,\mu')=\|\log \mu-\log \mu'\|_{\infty}$.
+
+We start with two observations.
+\begin{proposition}
+A mapping $\mu: (\mathcal{G}_n,\delta_v) \rightarrow (\mathcal{M},D_{\infty})$ corresponds to an $\epsilon$-differential private mechanism if and only if $\mu$ is $\epsilon$-Lipschitz with respect to $\delta_v$ and $D_{\infty}$.
+
+\end{proposition}
+
+\begin{proof}
+Follows from the definition.
+\end{proof}
+
+\begin{proposition}\label{extention}
+Suppose that for some $H_n \subset \mathcal{G}_n$ a function $\hat{\mu}: (H_n,\delta_v) \rightarrow (\mathcal{M},D_{\infty})$ is $\epsilon$-Lipschitz for some $\epsilon>0$. Then we can extend the function to a $\mu: (\mathcal{G}_n,\delta_v) \rightarrow (\mathcal{M},D_{\infty})$ such that it is $2\epsilon$-Liptschitz and for every $G \in H_n$, $\mu(G)=\hat{\mu}(G)$.
+\end{proposition}
+
+\begin{proof}
+We define for every $G \in \mathcal{G}_n$ and $A$ in the $\sigma$-field $$ d\mu(G)(A) \propto \inf_{G' \in H_n} \left[ 2^{\epsilon \delta_v(G,G')} d\hat{\mu}(G')(A) \right].$$ Both the properties follow. The differential privacy follows like for the exponential mechanism.
+\end{proof}
+ 
+\subsection{The minimax rate}
+
+Given the Proposition the rate we want to find is $$R=\min_{ \mu :(\mathcal{G}_n,\delta_v) \rightarrow (\mathcal{M},D_{\infty}) \\ \epsilon-Lipschitz} \max_{ p \in [0,1]} \mathbb{E}_{G \sim G_{n,p},\hat{p} \sim \mu_G}[|\hat{p}-p|]$$
+
+
+\subsection{A $n^{\frac{3}{2}}$-upper bound}
+
+\begin{proposition}\label{thm32}
+For the minimax rate defined above it holds $$R \leq O \left( \frac{1}{n}+\max\{p(1-p),\sqrt{\frac{\log n}{n}}\} \frac{\sqrt{\log n}}{n^{\frac{3}{2}} \epsilon} \right).$$
+\end{proposition}
+
+We start with a lemma.
+
+\begin{lemma}\label{union}
+Let $p \in [0,1]$. For every $S \subseteq V(G),|S|=k$ set the event $$A_{p,S}:=\{ |E(S,S^c)+E(S,S)-p\left[ k\left(n-k\right)+\binom{k}{2} \right]| \leq \max\{p(1-p),\sqrt{\frac{\log n}{n}}\}2k\sqrt{n \log n} |\}.$$ Then it holds
+$$\mathbb{P}_{G \sim G_{n,p}}\left[ \bigcup_{S \subseteq V(G) } A^c_{p,S} \right] \leq \frac{1}{n^2}.$$
+\end{lemma}
+
+\begin{proof}
+
+Set $c=\max\{p(1-p),\sqrt{\frac{\log n}{n}}\}$.
+By a union bound, Berstein inequality and basic algebra we have
+\begin{align*}
+&\mathbb{P}_{G \sim G_{n,p}}\left[ \bigcup_{S \subseteq V(G) } A^c_{p,S} \right] \\
+&\leq \sum_{k=1}^{n} \binom{n}{k} \exp\left( -4\frac{c^2k^2n \log n}{\left(k(n-k)+\binom{k}{2}\right)p(1-p)+2c k \sqrt{n \log n}} \right)\\
+&\leq \sum_{k=1}^n n^k n^{-4 k} \\
+&\leq n\frac{1}{n^3}=\frac{1}{n^2}
+\end{align*}
+
+\end{proof}
+
+\begin{proof}
+We now begin the proof of Proposition (\ref{thm32}). We remind the reader that the sampling error is $\frac{1}{n}$.
+
+
+Given the Proposition (\ref{extention}) a strategy would be to find a subset $H_n$ of all the graphs on $n$ vertices so that
+\begin{equation}\label{eq:assum1}
+\max_{p \in [0,1]} \mathbb{P}_{G \sim G_{n,p}} \left( G \not \in H_n \right) \leq \frac{1}{n}
+\end{equation}
+
+and furthermore define an $\epsilon$-Lip function $\hat{\mu}$ on $H_n$ so that for all $G \in H_n$, 
+\begin{equation}\label{eq:assum2}
+\mathbb{E}_{\hat{p} \sim \hat{\mu}_G}[|\hat{p}-e(G)|] \leq \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} \frac{100}{n^{\frac{3}{2}} \epsilon} \sqrt{\log n}
+\end{equation}
+
+Then, from Proposition (\ref{extention}) we could extend this mapping to a $2\epsilon$-Lipschitz mapping on the space of all graphs and furthermore have for all $p$,
+\begin{align*}
+&\mathbb{E}_{G \sim G_{n,p},\hat{p} \sim \mu_G}[|\hat{p}-e(G)|]\leq  \mathbb{P}_{G \sim G_{n,p}} \left( G \not \in H_n \right)+\max_{G \in H_n} \mathbb{E}_{\hat{p} \sim \hat{\mu}_G}[|\hat{p}-e(G)|]\\
+&=O \left(\frac{1}{n}+\max\{p(1-p),\sqrt{\frac{\log n}{n}}\} \frac{\sqrt{\log n}}{n^{\frac{3}{2}}\epsilon} \right)
+\end{align*}
+
+Given lemma (\ref{union}) we define $$H_n=\bigcup_{p \in [0,1]}\bigcap_{S \subseteq V(G)} A_{p,S},$$ that is all the graphs on $n$ vertices for which for some $p \in [0,1]$  all $A_{p,S}$ are satisfied. This represents for us the class of \textbf{homogeneous} graphs. Given the Lemma (\ref{union}) we know that indeed (\ref{eq:assum1}) is satisfied.
+
+For the next condition we define for every graph $G \in H_n$ the distribution over $[0,1]$ to come from the addition of ``truncated" Laplacian noise given by $$\hat{\mu}_G(q) \propto 2^{-\epsilon c \min \{\frac{n^{\frac{3}{2}}}{\max\{p(1-p),\sqrt{\frac{\log n}{n}}\}\sqrt{\log n}} |e(G)-q|,n\}}$$ for $q \in [0,1]$. The constant $c>0$ will be satisfied later on.
+
+It is easy to prove that (\ref{eq:assum2}) is satisfied but we need to prove that our mapping is $\epsilon$-Lip.
+
+To do this it is easy to establish first by triangle inequality that for any graphs on $n$ vertices $G_1,G_2$ $$D_{\infty} \left( \hat{\mu}_{G_1},\hat{\mu}_{G_2} \right) \leq 2\epsilon c \min \{\frac{n^{\frac{3}{2}}}{\max\{p(1-p),\sqrt{\frac{\log n}{n}}\}\sqrt{\log n}} |e(G_1)-e(G_2)|,n\} $$
+
+Hence we only need to prove that for some $c>0$ small enough and for any $G_1,G_2 \in H$ it holds $$c\min\{ \frac{n^{\frac{3}{2}}}{\max\{p(1-p),\sqrt{\frac{\log n}{n}}\}\sqrt{\log n}}|e(G)-e(G')|,n\} \leq \delta_V(G,G').$$ 
+
+This is what we prove in the next claim we completes the proof.
+
+\begin{claim}
+There exists a universal constant $c>0$ such that for any $G,G' \in H$, it holds $$c\min\{ \frac{n^{\frac{3}{2}}}{\max\{p(1-p),\sqrt{\frac{\log n}{n}}\} \sqrt{\log n}}|e(G)-e(G')|,n\} \leq \delta_V(G,G').$$ 
+\end{claim}
+
+\begin{proof}
+Let $G,G' \in H$. By assuming $c<\frac{1}{4}$ we may assume that $\delta_V(G,G') \leq \frac{n}{4}$. In that case we will prove that for some universal $c>0$, $$c\frac{n^{\frac{3}{2}}}{\sqrt{\log n}}|e(G)-e(G')| \leq  \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} \delta_V(G,G').$$ 
+
+Let $p,q$ such that $G \in \bigcap_{S \subseteq V(G)} A_{p,S}$ and $G'\in \bigcap_{S \subseteq V(G)} A_{q,S}$.
+Consider $S_0 \subseteq V(G)$ the vertices that need to be rewired to change $G$ to $G'$. In particular it holds $\delta_V(G,G')=|S_0|=:k$.
+Now we have
+\begin{align*}
+& |E(G)-E(G')|\\
+&=|E_G(S_0,S_0)+E_G(S_0,S^c_0)-E_{G'}(S_0,S_0)-E_{G'}(S_0,S^c_0)|\\
+& \leq |p-q| \left( k(n-k)+\binom{k}{2} \right) +4 \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} k  \sqrt{n \log n} \text{ ,using  }  G \in A_{p,S_0}, G' \in A_{q,S_0}
+\end{align*}
+
+Now observe that since $G \in A_{p,V(G)}, G' \in A_{q,V(G')}$ it holds $|E(G)-p \binom{n}{2}| \leq 2 \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} n \sqrt{n \log n}$, $|E(G')-q \binom{n}{2}| \leq 2 \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} n \sqrt{n \log n}$. Hence, $$|p-q| \leq \frac{1}{\binom{n}{2}}|E(G)-E(G')|+\frac{4 \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} n \sqrt{n \log n}}{\binom{n}{2}}$$
+
+Plugging this into the previous inequality we have, \begin{align*}
+&|E(G)-E(G')| \leq \\
+&\left[\frac{1}{\binom{n}{2}}|E(G)-E(G')|+\frac{4 \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} n \sqrt{n \log n}}{\binom{n}{2}}\right] \left( k(n-k)+\binom{k}{2} \right)\\
+& +4\max\{p(1-p),\sqrt{\frac{\log n}{n}}\} k  \sqrt{n \log n},
+\end{align*}
+
+
+
+Since  $ k(n-k)+\binom{k}{2} \leq kn$ we can equivalently write the inequality as
+$$\left( \binom{n}{2}-kn \right)|e(G)-e(G')| \leq 8 \frac{n^2}{\binom{n}{2}} \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} k  \sqrt{n \log n}.$$
+
+But now as we have assumed $k \leq \frac{n}{4}$ we have $\binom{n}{2}-kn \geq \frac{n^2}{8}$ (large n) and since $\frac{n^2}{\binom{n}{2}} \leq 4$ (large n) the inequality gives 
+for some universal $c>0$
+$$c\frac{n^{\frac{3}{2}}}{\sqrt{\log n}}|e(G)-e(G')| \leq  \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} k  =\max\{p(1-p),\sqrt{\frac{\log n}{n}}\} \delta_V(G,G'),$$
+as we wanted.
+
+
+\end{proof}
+
+
+
+
+\end{proof}
+
+
+\section{The lower bound}
+Let $n,k \in \mathbb{N}$ and $N=\binom{n}{2},M=(N-k)/2$.
+
+\subsection{The 1-distance case}
+We consider two models. The first is $\mathbb{P}_1=G(n,M)$, that is sample a uniform graph on $n$ vertices and $M$ edges. The second is $\mathbb{P}_2=G(n,M,k)$: sample first uniformly a graph on $n$ vertices and $M+k$ edges, choose a uniformly chosen maximum-degree vertex and then delete $\min\{ d_{\mathrm{max}},k\}$ edges which are adjacent to the vertex uniformly at random. 
+
+
+\begin{theorem}
+Suppose $k=\frac{1}{\sqrt{2}}\sqrt{n \log n}$. Then $$ \lim_{n \rightarrow +\infty} \mathrm{TV}\left(\mathbb{P}_1,\mathbb{P}_2\right) = 0.$$
+\end{theorem}
+
+
+\begin{proof}
+By Pinsker's inequality it suffices to deal with the KL-divergence and show $$ \lim_{n \rightarrow + \infty} \mathbb{E}_{G_0 \sim \mathbb{P}_1} \left[ \log \frac{\mathbb{P}_2[G=G_0]}{\mathbb{P}_1[G=G_0]}  \right]=0.$$ By Jensen inequality we have for all $n$, $$ \mathbb{E}_{G_0 \sim \mathbb{P}_1} \left[ \log \frac{\mathbb{P}_2[G=G_0]}{\mathbb{P}_1[G=G_0]}  \right] \leq  \log  \mathbb{E}_{G_0 \sim \mathbb{P}_1}  \left[\frac{\mathbb{P}_2[G=G_0]}{\mathbb{P}_1[G=G_0]}  \right]=\log 1=0.$$ So it suffices to show $$ \liminf_{n \rightarrow + \infty} \mathbb{E}_{G_0 \sim \mathbb{P}_1} \left[ \log \frac{\mathbb{P}_2[G=G_0]}{\mathbb{P}_1[G=G_0]}  \right]=0.$$
+
+Now for any $G_0$ on $n$ vertices with $M$ edges we lower bound $\mathbb{P}_2[G=G_0]$ as follows,
+
+\begin{align*}
+\mathbb{P}_2[G=G_0]&=\sum_{G' \text{ with M+k edges}} \mathbb{P}(G' \text{ is chosen in the first step}) \mathbb{P}(G_0|G')\\
+&=\sum_{G' \text{ with M+k edges and }\mathbb{P}(G_0|G')>0 } \frac{1}{\binom{N}{M+k}} \mathbb{P}(G_0|G') \text{ ($G'$ is chosen u.a.r.)}\\
+&= \frac{1}{\binom{N}{M+k}} \sum_{v \in V(G_0)  : d^{G_0}(v)  \geq d^{G_0}_{max}-k} \sum_{G' \text{ is plausible by } G_0 \text{ via } v}\mathbb{P}(G_0|G')   \\
+&=  \frac{1}{\binom{N}{M+k}} \sum_{v \in V(G_0) : d^{G_0}(v)  \geq d^{G_0}_{max}-k} \sum_{G' \text{ is plausible by } G_0 \text{ via } v}\frac{1}{|\text{max. degree vertices in } G'|\binom{d^{G_0}(v)+k}{k}}\\
+&=  \frac{1}{\binom{N}{M+k}} \sum_{v \in V(G_0) : d^{G_0}(v)  \geq d^{G_0}_{max}-k} \frac{\binom{n-d^{G_0}(v)-1}{k}}{|\text{max. degree vertices in } G'|\binom{d^{G_0}(v)+k}{k}}\\
+&\geq   \frac{1}{\binom{N}{M+k}} \sum_{v \in V(G_0) : d^{G_0}(v)  \geq d^{G_0}_{max}-k+2} \frac{\binom{n-d^{G_0}(v)-1}{k}}{\binom{d^{G_0}(v)+k}{k}} \text{ (in these cases unique max degree vertex)}\\
+&\geq   \frac{1}{\binom{N}{M+k}} \sum_{v \in V(G_0) : d^{G_0}(v)  \geq d^{G_0}_{max}-k+2} \left(\frac{n-d^{G_0}(v)-1}{d^{G_0}(v)+k}\right)^{k}(1+O(\frac{k}{d^{G_0}(v)}))\\
+&\geq   \frac{1}{\binom{N}{M+k}} \sum_{v \in V(G_0) : d^{G_0}_{max}-k+k/\log \log n \geq d^{G_0}(v)  \geq d^{G_0}_{max}-k+2} \left(\frac{n-d^{G_0}(v)-1}{d^{G_0}(v)+k}\right)^{k}(1+O(\frac{k}{d^{G_0}(v)}))\\
+&\geq   \frac{1}{\binom{N}{M+k}} \mathcal{Z}\left(\frac{n-d^{G_0}_{max}+k+o(k)-3}{d^{G_0}_{max}+o(k)}\right)^{k}(1+O(\frac{k}{d^{G_0}_{max}-k})
+\end{align*} for $\mathcal{Z}$ is the number of vertices in $G_0$ with degree between $d^{G_0}_{max}-k$ and $d^{G_0}_{max}-k+k/\log \log n$. 
+
+As by definition $\mathbb{P}_1[G=G_0]=\frac{1}{\binom{N}{M}}=\frac{1}{\binom{N}{M+k}}$ ( $M+k=N-M$) we conclude 
+$$\mathbb{E}_{G_0 \sim \mathbb{P}_1} \left[ \log \frac{\mathbb{P}_2[G=G_0]}{\mathbb{P}_1[G=G_0]}  \right]$$is at least
+\begin{align*}\mathbb{E}_{G_0 \sim \mathbb{P}_1} \log \mathcal{Z}+k\mathbb{E}_{G_0 \sim \mathbb{P}_1}\log \left(\frac{n-d^{G_0}_{max}+k+o(k)-3}{d^{G_0}_{max}+o(k)}\right)+\mathbb{E}_{G_0 \sim \mathbb{P}_1}\log (1+O(\frac{k}{d^{G_0}_{max}-k}).\end{align*} 
+
+
+\begin{lemma}\label{lem}
+With probability $1-\exp(-c(\log n)^{1/4})$, $|d^{G_0}_{max}-(n-1)/2-k| \leq \sqrt{n}/(\log n)^{\frac{1}{4}}$ and $ \mathcal{Z} \geq n-10 \sqrt{n} \log n$.
+\end{lemma}
+
+
+\begin{proof}
+To be added. 
+\end{proof}
+Using Lemma \ref{lem} we have (using also $\log (1+x)=x+o(x)$ twice)
+\begin{align*}
+&\mathbb{E}_{G_0 \sim \mathbb{P}_1} \log \mathcal{Z}+k\mathbb{E}_{G_0 \sim \mathbb{P}_1}\log \left(\frac{n-d^{G_0}_{max}+k+o(k)-3}{d^{G_0}_{max}+o(k)}\right)+\mathbb{E}_{G_0 \sim \mathbb{P}_1}\log (1+O(\frac{k}{d^{G_0}_{max}-k}).\\
+& \geq \log n+O(\log n/\sqrt{n})+k\log \left(\frac{n/2+o(k)-3}{n/2+k+o(k)}\right)+O(k/n)\\
+&= \log n+k\left(\frac{n/2+o(k)-3}{n/2+k+o(k)}-1\right)+o(1)\\
+&=\log n-2k^2/n+O(k/n) \\
+&=o(1)\text{, since } k^2=2n\log n.
+\end{align*}
+
+The proof is complete.
+\end{proof}
+
+
+\subsection{The general case}
+
+
+Let $C \in \mathbb{N}$ and $k_1,\ldots,k_C>0$ with $k=\sum_{i=1}^C k_i$.
+We consider two random generating models. The first is again $\mathbb{P}_1=G(n,M)$, that is sample a uniform graph on $n$ vertices and $M$ edges. The second is $\mathbb{P}_2=G(n,M,k_1,k_2,\ldots,k_C)$: sample first uniformly a graph on $n$ vertices and $M+k$ edges, list (solving ties randomly) the vertices into a decreasing order and then for $i=1,2,\ldots,C$ delete from the $i$-th vertex $\min\{ d_i,k_i\}$ adjacent edges uniformly at random. 
+
+
+\begin{theorem}
+Suppose $C=o(\sqrt{n})$ and for all $i=1,2,\ldots,C$, $k=\frac{1}{\sqrt{2}}\sqrt{n \log (n/i)}$. Then $$ \lim_{n \rightarrow +\infty} \mathrm{TV}\left(\mathbb{P}_1,\mathbb{P}_2\right) \rightarrow 0.$$
+\end{theorem}
+
+\begin{proof}
+Similarly with the previous proof we lower bound $\mathbb{P}_2[G=G_0]$ as follows
+
+\begin{align*}
+\mathbb{P}_2[G=G_0]&=\sum_{G' \text{ with M+k edges}} \mathbb{P}(G' \text{ is chosen in the first step}) \mathbb{P}(G_0|G')\\
+&=\sum_{G' \text{ with M+k edges and }\mathbb{P}(G_0|G')>0 } \frac{1}{\binom{N}{M+k}} \mathbb{P}(G_0|G') \text{ ($G'$ is chosen u.a.r.)}\\
+&= \frac{1}{\binom{N}{M+k}} \sum_{v_1,\ldots,v_C \in V(G_0)  : d^{G_0}(v_i)  \geq d^{G_0}_i-k_i} \sum_{G' \text{ is plausible by } G_0 \text{ via } v_1,\ldots,v_C}\mathbb{P}(G_0|G')  \end{align*}
+
+Now as before notice that if we choose any unordered list of vertices $v_1,\ldots,v_C$ that satisfy for all $j$, $$l:=\max_{i \in [C]} \left( d_i-k_i \right) \leq d^{G_0}(v_j) \leq \min_{i \in [C]} \left(d_i-k_i+k_i/\log \log n\right)=:L,$$ then after ordering them so that their degrees are decreasing, we can add any $k_i$ edjes to $v_i$ (among the non-adjacent edges and not edges connecting with other $v_i$'s) to $G_0$ and create a plausible $G'$. In particular that calculation implies,
+\begin{align*}
+\mathbb{P}_2[G=G_0]& \geq  \frac{1}{\binom{N}{M+k}} \sum_{v_1,\ldots,v_C \in V(G_0)  : l \leq  d^{G_0}(v_i) \leq L }  \prod_{i=1}^C \frac{\binom{n-d^{G_0}(v_i)-C-1}{k_i}}{\binom{d^{G_0}(v_i)+k_i}{k_i}} \\
+&\geq   \frac{1}{\binom{N}{M+k}} \sum_{v \in V(G_0) : v_1,\ldots,v_C \in V(G_0)  : l \leq  d^{G_0}(v_i) \leq L } \prod_{i=1}^C \left(\frac{n-d^{G_0}(v_i)-C}{d^{G_0}(v_i)+k_i}\right)^{k_i}(1+O(\frac{k_i}{d^{G_0}(v_i)}))\\
+&\geq   \frac{1}{\binom{N}{M+k}} \mathcal{Z_C} \prod_{i=1}^C \left(\frac{n-d^{G_0}_i+k_i+o(k_i)-3}{d^{G_0}_i+o(k_i)}\right)^{k_i}(1+O(\frac{k_i}{d^{G_0}_i-k_i}))
+\end{align*} for $\mathcal{Z}$ is the number of vertices in $G_0$ with degree between $l$ and $L$. 
+
+As by definition $\mathbb{P}_1[G=G_0]=\frac{1}{\binom{N}{M}}=\frac{1}{\binom{N}{M+k}}$, since $M+k=N-k$, we conclude 
+$$\mathbb{E}_{G_0 \sim \mathbb{P}_1} \left[ \log \frac{\mathbb{P}_2[G=G_0]}{\mathbb{P}_1[G=G_0]}  \right]$$is at least
+\begin{align*}\mathbb{E}_{G_0 \sim \mathbb{P}_1} \log \mathcal{Z}_C+\sum_{i=1}^Ck_i\mathbb{E}_{G_0 \sim \mathbb{P}_1}\log \left(\frac{n-d^{G_0}_i+k_i+o(k_i)-3}{d^{G_0}_i+o(k_i)}\right)+\sum_{i=1}^C\mathbb{E}_{G_0 \sim \mathbb{P}_1}\log (1+O(\frac{k_i}{d^{G_0}_i-k_i}).\end{align*} 
+
+
+\begin{lemma}\label{lem1}
+With probability $1-\exp(-c(\log n)^{1/4})$, $|d^{G_0}_i-(n-1)/2-k_i| \leq \sqrt{n}/(\log n)^{\frac{1}{4}}$ and $ \mathcal{Z} \geq \binom{n}{C}(1+o(1))$.
+\end{lemma}
+
+Using Lemma \ref{lem1} we have
+\begin{align*}
+&\mathbb{E}_{G_0 \sim \mathbb{P}_1} \log \mathcal{Z}_C+\sum_{i=1}^Ck_i\mathbb{E}_{G_0 \sim \mathbb{P}_1}\log \left(\frac{n-d^{G_0}_i+k_i+o(k_i)-3}{d^{G_0}_i+o(k_i)}\right)+\sum_{i=1}^C\mathbb{E}_{G_0 \sim \mathbb{P}_1}\log (1+O(\frac{k_i}{d^{G_0}_i-k_i}).\\
+& \geq C\log n+o(1)+\sum_{i=1}^Ck_i\log \left(\frac{n/2+o(k_i)-C}{n/2+k_i+o(k_i)}\right)+\sum_{i=1}^CO(k_i/n)\\
+&= C\log n-2\sum_{i=1}^Ck_i^2/n+O(C\sum k_i /n)+o(1), \text{ using } \log (1+x)=x+o(x)\\
+&=0+O(C/\sqrt{n})\\
+&=o(1).
+\end{align*}
+
+
+\end{proof}
+
+\end{document}
