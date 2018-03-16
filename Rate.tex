@@ -301,12 +301,12 @@ We consider two models. The first is $\mathbb{P}_1=G(n,M)$, that is sample a uni
 
 
 \begin{theorem}
-Suppose $k=\frac{1}{\sqrt{2}}\sqrt{n \log n}$. Then $$ \lim_{n \rightarrow +\infty} \mathrm{TV}\left(\mathbb{P}_1,\mathbb{P}_2\right) = 0.$$
+Suppose $k=\frac{1}{\sqrt{2}}\sqrt{n \log n}$. Then $$ \lim_{n \rightarrow +\infty} \mathrm{KL}\left(\mathbb{P}_1,\mathbb{P}_2\right) \leq \log 2.$$
 \end{theorem}
 
 
 \begin{proof}
-By Pinsker's inequality it suffices to deal with the KL-divergence and show $$ \lim_{n \rightarrow + \infty} \mathbb{E}_{G_0 \sim \mathbb{P}_1} \left[ \log \frac{\mathbb{P}_2[G=G_0]}{\mathbb{P}_1[G=G_0]}  \right]=0.$$ By Jensen inequality we have for all $n$, $$ \mathbb{E}_{G_0 \sim \mathbb{P}_1} \left[ \log \frac{\mathbb{P}_2[G=G_0]}{\mathbb{P}_1[G=G_0]}  \right] \leq  \log  \mathbb{E}_{G_0 \sim \mathbb{P}_1}  \left[\frac{\mathbb{P}_2[G=G_0]}{\mathbb{P}_1[G=G_0]}  \right]=\log 1=0.$$ So it suffices to show $$ \liminf_{n \rightarrow + \infty} \mathbb{E}_{G_0 \sim \mathbb{P}_1} \left[ \log \frac{\mathbb{P}_2[G=G_0]}{\mathbb{P}_1[G=G_0]}  \right]=0.$$
+It suffices to show $$ \liminf_{n \rightarrow + \infty} \mathbb{E}_{G_0 \sim \mathbb{P}_1} \left[ \log \frac{\mathbb{P}_2[G=G_0]}{\mathbb{P}_1[G=G_0]}  \right] \geq -\log 2.$$
 
 Now for any $G_0$ on $n$ vertices with $M$ edges we lower bound $\mathbb{P}_2[G=G_0]$ as follows,
 
@@ -328,7 +328,7 @@ $$\mathbb{E}_{G_0 \sim \mathbb{P}_1} \left[ \log \frac{\mathbb{P}_2[G=G_0]}{\mat
 
 
 \begin{lemma}\label{lem}
-With probability $1-\exp(-c(\log n)^{1/4})$, $|d^{G_0}_{max}-(n-1)/2-k| \leq \sqrt{n}/(\log n)^{\frac{1}{4}}$ and $ \mathcal{Z} \geq n-10 \sqrt{n} \log n$.
+With probability $1-\exp(-c(\log n)^{1/4})$, $|d^{G_0}_{max}-(n-1)/2-k| \leq \sqrt{n}/(\log n)^{\frac{1}{4}}$ and $ \mathcal{Z} \geq n/2-10 \sqrt{n} \log n$.
 \end{lemma}
 
 
@@ -339,9 +339,9 @@ Using Lemma \ref{lem} we have (using also $\log (1+x)=x+o(x)$ twice)
 \begin{align*}
 &\mathbb{E}_{G_0 \sim \mathbb{P}_1} \log \mathcal{Z}+k\mathbb{E}_{G_0 \sim \mathbb{P}_1}\log \left(\frac{n-d^{G_0}_{max}+k+o(k)-3}{d^{G_0}_{max}+o(k)}\right)+\mathbb{E}_{G_0 \sim \mathbb{P}_1}\log (1+O(\frac{k}{d^{G_0}_{max}-k}).\\
 & \geq \log n+O(\log n/\sqrt{n})+k\log \left(\frac{n/2+o(k)-3}{n/2+k+o(k)}\right)+O(k/n)\\
-&= \log n+k\left(\frac{n/2+o(k)-3}{n/2+k+o(k)}-1\right)+o(1)\\
-&=\log n-2k^2/n+O(k/n) \\
-&=o(1)\text{, since } k^2=2n\log n.
+&= \log n/2+k\left(\frac{n/2+o(k)-3}{n/2+k+o(k)}-1\right)+o(1)\\
+&=\log n/2-2k^2/n+O(k/n) \\
+&=-log 2o(1)\text{, since } k^2=2n\log n.
 \end{align*}
 
 The proof is complete.
@@ -349,7 +349,7 @@ The proof is complete.
 
 
 \subsection{The general case}
-
+(MISTAKEN attempt- to be fixed)
 
 Let $C \in \mathbb{N}$ and $k_1,\ldots,k_C>0$ with $k=\sum_{i=1}^C k_i$.
 We consider two random generating models. The first is again $\mathbb{P}_1=G(n,M)$, that is sample a uniform graph on $n$ vertices and $M$ edges. The second is $\mathbb{P}_2=G(n,M,k_1,k_2,\ldots,k_C)$: sample first uniformly a graph on $n$ vertices and $M+k$ edges, list (solving ties randomly) the vertices into a decreasing order and then for $i=1,2,\ldots,C$ delete from the $i$-th vertex $\min\{ d_i,k_i\}$ adjacent edges uniformly at random. 
