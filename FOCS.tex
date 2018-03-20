@@ -1,0 +1,487 @@
+\documentclass[12pt,a4paper]{article}
+%\usepackage{amsmath,amsthm,amsfonts,amssymb,mathrsfs,bm}
+\usepackage{amsmath,amsthm,amsfonts,amssymb,bm,wasysym}
+%\usepackage{marvosym}
+\usepackage{subfigure}
+\usepackage{graphicx}
+\usepackage[usenames]{color}
+\usepackage{verbatim}
+\usepackage{epsfig}
+%\usepackage{showlabels}
+
+%\usepackage{ccfonts}
+%\usepackage{euler}
+%\usepackage{txfonts}
+%\usepackage{mathptmx}
+%\usepackage{cmbright}
+%\usepackage{lucidabr}
+%%\usepackage{fourier}
+
+%\usepackage[english,greek]{babel}
+%\usepackage[iso-8859-7]{inputenc}
+
+%for soda
+\topmargin 0in
+\oddsidemargin .01in
+\textwidth 6.5in
+\textheight 9in
+\evensidemargin 1in
+\addtolength{\voffset}{-.6in}
+\addtolength{\textheight}{0.22in}
+\parskip \medskipamount
+\parindent	0pt
+
+%\oddsidemargin	0.635cm
+%\textwidth	15.3cm
+%\topmargin	-1cm
+%\textheight	23cm
+%\parindent	0pt
+%\parskip 	\bigskipamount
+
+%%%%%%%%%%%THEOREMS%%%%%%%%%%%
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{assumption}[theorem]{Assumption}
+\numberwithin{equation}{section}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{defn}{Definition}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{property}{Property}[theorem]
+%\newtheorem{remark}[theorem]{Remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{claim}[theorem]{Claim}
+
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\numberwithin{equation}{section}
+
+
+%%%%%%%%%%%LETTERS%%%%%%%%%%%
+\def\N{\mathbb{N}}
+\def\Z{\mathbb{Z}}
+\def\Q{\mathbb{Q}}
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\bP{\mathbb{P}}
+\def\S{\mathbb{S}}
+\def\AA{\mathcal{A}}
+\def\F{\mathcal{F}}
+\def\EE{\mathcal{E}}
+\def\B{\mathcal{B}}
+\def\LL{\mathcal{L}}
+\def\NN{\mathcal{N}}
+\def\PP{\mathcal{P}}
+\def\T{\mathcal{T}}
+\def\tr{{\rm{tr}}}
+\renewcommand{\phi}{\varphi}
+\renewcommand{\epsilon}{\varepsilon}
+\def\cprime{$'$}
+
+%\allowdisplaybreaks
+
+%%%%%%%%%%%SYMBOLS & OPERATORS%%%%%%%%%%%
+\newcommand{\1}{{\text{\Large $\mathfrak 1$}}}
+
+\newcommand{\comp}{\raisebox{0.1ex}{\scriptsize $\circ$}}
+%\newcommand{\cadlag}{{c\`adl\`ag} }
+\newcommand{\bin}{\operatorname{Bin}}
+%\newcommand{\var}{\operatorname{var}}
+\newcommand{\cov}{\operatorname{Cov}}
+%\renewcommand{\limsup}{\varlimsup}
+%\renewcommand{\liminf}{\varliminf}
+\newcommand{\eqdist}{\stackrel{\text{d}}{=}}
+\newcommand{\dirac}{\text{\large $\mathfrak d$}}
+\newcommand{\ud}{\mathrm{d}}
+\newcommand{\vol}{\mathrm{vol}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\I}{_{\text{\sc i}}}
+\newcommand{\II}{_{\text{\sc ii}}}
+\newcommand{\III}{_{\text{\sc iii}}}
+\newcommand{\IV}{_{\text{\sc iv}}}
+\newcommand{\IVp}{_{\text{{\sc iv},p}}}
+\newcommand{\IVf}{_{\text{{\sc iv},f}}}
+\def\nn{\text{\tiny $N$}}
+\newcommand{\ttt}{\widetilde}
+\def\Prob{{\mathbf P}}
+\def\C{{\mathcal C}}
+\newcommand{\tdet}{T}
+\newcommand{\sdet}{S}
+\newcommand{\til}{\widetilde}
+
+%\newcommand{\taver}{t_{\mathrm{ave}}}
+%\newcommand{\tmix}{t_{\mathrm{mix}}}
+%\newcommand{\tmixlazy}{\tau_1(\mathrm{lazy})}
+%\newcommand{\tg}{t_{\mathrm{G}}}
+%\newcommand{\tsep}{t_{\mathrm{sep}}}
+%\newcommand{\tl}{t_{\mathrm{L}}}
+%\newcommand{\thit}{t_{\mathrm{H}}}
+%%\newcommand{\tstop}{t_{\text{\Stopsign}}}
+%\newcommand{\tmax}{t_{\mathrm{hit}}}
+%\newcommand{\tstop}{t_{\mathrm{stop}}}
+%\newcommand{\tct}{t_{\mathrm{cts}}}
+%\newcommand{\tprod}{t_{\mathrm{prod}}}
+%\newcommand{\tces}{t_{\mathrm{Ces}}}
+%\newcommand{\tmov}{t_{\mathrm{HIT}}}
+%\newcommand{\trel}{t_{\mathrm{rel}}}
+
+\newcommand{\pr}[1]{\mathbb{P}\!\left(#1\right)}
+\newcommand{\E}[1]{\mathbb{E}\!\left[#1\right]}
+\newcommand{\estart}[2]{\mathbb{E}_{#2}\!\left[#1\right]}
+\newcommand{\prstart}[2]{\mathbb{P}_{#2}\!\left(#1\right)}
+\newcommand{\prcond}[3]{\mathbb{P}_{#3}\!\left(#1\;\middle\vert\;#2\right)}
+\newcommand{\econd}[2]{\mathbb{E}\!\left[#1\;\middle\vert\;#2\right]}
+\newcommand{\econds}[3]{\mathbb{E}_{#3}\!\left[#1\;\middle\vert\;#2\right]}
+
+\newcommand{\var}[1]{\operatorname{Var}\!\left(#1\right)}
+\newcommand{\vars}[2]{\operatorname{Var}_{#2}\!\left(#1\right)}
+
+
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\fract}[2]{{\textstyle\frac{#1}{#2}}}
+\newcommand{\tn}{|\kern-.1em|\kern-0.1em|}
+
+\newcommand{\enk}[1]{\estart{#1}{n_k}}
+\newcommand{\vnk}[1]{\operatorname{Var}_{n_k}\!\left(#1\right)}
+\newcommand{\red}[1]{{\color{red}{#1}}}
+\newcommand{\2}[1]{{\text{\Large $\mathfrak 1$}\!\left(#1\right)}}
+
+
+% Martin's macros
+\newcommand\be{\begin{equation}}
+\newcommand\ee{\end{equation}}
+\def\bZ{\mathbb{Z}}
+\def\Reff{R_{\rm{eff}}}
+\def\bP{\mathbb{P}}
+\def\Ca{ {\mathop{\rm Comb}}(\Z, \alpha)}
+\def\eps{\varepsilon}
+\def\p{\Psi}
+
+
+
+\usepackage{float}
+\author{
+{\sf Christian Borgs}\thanks{Microsoft Research New England e-mail: {\tt Christian.Borgs@microsoft.com}. }
+\and
+{\sf Jennifer Chayes}\thanks{Microsoft Research New England e-mail: {\tt jchayes@microsoft.com}.}
+\and
+{\sf Adam Smith}\thanks{Boston University; e-mail: {\tt ads22@bu.edu}. }
+\and
+{\sf Ilias Zadik}\thanks{MIT; e-mail: {\tt izadik@mit.edu}. Research done in part while an intern at Microsoft Research New England. }
+}
+
+\begin{document}
+
+
+
+\title{On Privately Estimating Graphs}
+\date{}
+
+\maketitle
+
+\begin{abstract}
+
+\end{abstract}
+
+
+\section{Introduction}
+
+
+\section{Main Results}
+
+\subsection{Private Graphon Estimation}
+%In \cite{Borgs2015} the following theorem was established. 
+%
+%\begin{theorem}[Theorem 5 from \cite{Borgs2015}] 
+%Let $W: [0,1]^2 \rightarrow [0,\Lambda]$ be a normalised graphon, $G=G_n(\rho W)$, $ \epsilon>0$, $\lambda \geq 1$ and $k \in \mathbb{Z}$. Assume also that
+% \begin{itemize}
+%\item  $6 \log n/n<\rho \leq 1/\Lambda$
+%\item $8 \Lambda \leq \lambda  \leq \sqrt{n}$
+%\item $2 \leq k \leq \min \{n,\sqrt{\frac{\rho}{2}},e^{\frac{\rho n}{2}}\}$
+%\item $\rho n \epsilon \rightarrow + \infty$
+%\end{itemize} 
+%Then the Algorithm 1 from \cite{Borgs2015} with input $\epsilon,\lambda,k$ and $G$ outputs a pair $(\hat{\rho},\hat{B}) \in \mathbb{R} \times \mathbb{R}^{k \times k}$ with
+%\begin{equation}
+%\hat{\delta}_2\left(\frac{1}{\hat{\rho}}\hat{B},H_n(W)\right) \leq \hat{\epsilon}_k^{(O)}(H_n(W))+O_P\left(\sqrt[4]{\lambda^2(\frac{ \log k}{\rho n}+\frac{k^2}{\rho n^2})}+\lambda \sqrt{\frac{k^2 \log n}{n \epsilon}}+\frac{\sqrt{\lambda}}{n \rho \epsilon} \right).
+%\end{equation}
+%\end{theorem}
+
+\begin{theorem}\label{stronger}
+Let $W: [0,1]^2 \rightarrow [0,\Lambda]$ be a normalised graphon, $G=G_n(\rho W)$, $ \epsilon>0$, $\lambda \geq 1$ and $k \in \mathbb{Z}$. Assume also that
+ \begin{itemize}
+\item  $6 \log n/n<\rho \leq 1/\Lambda$
+\item $8 \Lambda \leq \lambda  \leq \sqrt{n}$
+\item $\rho n \epsilon \rightarrow +\infty$
+\item $\epsilon=O(k^2 \log n)$
+\end{itemize} 
+Then the Algorithm 1 from \cite{Borgs2015} with input $\epsilon,\lambda,k$ and $G$ outputs a pair $(\hat{\rho},\hat{B}) \in \mathbb{R} \times \mathbb{R}^{k \times k}$ with
+\begin{equation*}
+\hat{\delta}_2\left(\frac{1}{\hat{\rho}}\hat{B},H_n(W)\right) \leq O_P\left(\hat{\epsilon}_k^{(O)}( H_n(W))+\sqrt{\lambda  \left(\frac{\log k}{ \rho n}+\frac{k^2}{\rho n^2}\right)} + \lambda  \sqrt{\frac{k^2\log n}{n \epsilon}}+ \frac{\sqrt{\lambda}}{n \rho \epsilon}\right)
+\end{equation*}
+
+\end{theorem}
+
+
+In the next subsections we discuss the part of the rate which is dependent on $\epsilon$.
+\subsection{The One Block Case}
+
+\subsection*{The Upper Bound}
+
+The rate we want to find is for $\rho \in [0,1]$, $$R_{\rho}=\min_{ \mu :(\mathcal{G}_n,\delta_v) \rightarrow (\mathcal{M},D_{\infty}) \\ \epsilon-Lipschitz} \max_{ p \in [0,\rho]} \mathbb{E}_{G \sim G_{n,p},\hat{p} \sim \mu_G}[|\hat{p}-p|]$$
+
+\begin{proposition}\label{thm32}
+Suppose $\epsilon n \rightarrow +\infty$. For every $\rho \in [0,\rho]$ we have $$R_{\rho} \leq O \left( \frac{1}{n}+\max\{\rho,\sqrt{\frac{\log n}{n}}\} \frac{\sqrt{\log n}}{n^{\frac{3}{2}} \epsilon} \right).$$
+\end{proposition}
+\subsection*{The Lower Bound}
+
+\subsection{The Two Blocks Case}
+
+[Here Laplace noise is optimal and the rate is $\frac{1}{n \epsilon}$.]
+\section{A General Extension Technique}
+\subsection*{The Model}
+Let $n \in \mathbb{N}$ and $\epsilon>0$. We assume that the analyst's objective is to estimate a certain quantity which takes values in $ \mathbb{R}^n$ from input data which take values in a metric space $(\mathcal{M},d)$. The analyst is assumed to use for this task a randomized algorithm $\mathcal{A}$ which should be \begin{itemize}
+\item[(1)] as highly \textbf{accurate} as possible for input data belonging in some \textit{hypothesis set} $\mathcal{H} \subseteq \mathcal{M}$;
+
+\item[(2)] $\epsilon$-\textbf{differentially private} on the whole metric space of input data $(M,d)$.
+\end{itemize}
+
+In this section we state the following result. Consider an arbitrary $\epsilon$-differentially private algorithm defined on input belonging in some set $\mathcal{H} \subset \mathcal{M}.$ We show that it \textbf{can be always extended} to a $2\epsilon$-differentially private algorithm defined for arbitrary input data from $\mathcal{M}$ with the property that if the input data belongs in $\mathcal{H}$ the distribution of output values is the same with the original algorithm. We state formally the result. 
+
+\begin{proposition}\label{extension}
+Let $\hat{\mathcal{A}}$ be a randomized algorithm designed for input from $\mathcal{H} \subseteq \mathcal{M}$. Then there exists a randomized algorithm $\mathcal{A}$ defined on the whole input space $\mathcal{M}$ which is $2\epsilon$-differentially private and satisfies that for every $D \in \mathcal{H}$, $\mathcal{A}(D) \overset{d}{=}  \hat{\mathcal{A}}(D)$.
+\end{proposition}
+
+\section{Proofs}
+
+\section{Discussion and Open Problems}
+
+
+%\section{Proof of Graphon Estimation}
+%The essential improvement is coming from improving Proposition 1 of \cite{Borgs2015} to the following proposition.
+%\begin{proposition}\label{prop}
+%Let $r \in [0,1]$, $Q \in [0,r]^{k \times k}$ be a symmetric matrix with vanishing diagonal and $A \sim \mathrm{Bern_0}(Q)$. If $\hat{B} \in \mathcal{B}_r$ satisfies 
+%\begin{equation}\label{eq:condition}
+%\mathrm{Score}\left(\hat{B},A\right) \geq \max_{B \in \mathcal{B}_r}[\mathrm{Score}\left(\hat{B},A\right)]-\nu^2
+%\end{equation}
+%for some $\nu>0$ then with probability at least $1-\exp\left(-\Omega(k \log n)\right)$
+%\begin{equation*}
+%\hat{\delta}_2\left(\hat{B},Q\right) \leq O\left(\epsilon_k^{(O)}(Q)+\nu+\sqrt{r \left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)}  \right)
+%\end{equation*}
+%and in particular,
+%\begin{equation*}
+%\|\hat{B}\|_2 \leq O\left(\|Q\|_2+\nu+\sqrt{r \left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)}  \right)
+%\end{equation*}
+%\end{proposition}
+%
+%
+%
+%\begin{proof} (of Proposition \ref{prop})
+%Let $B_0 \in \mathcal{B}_r $ and  $\pi_0$ $k$-equipartition of $[n]$ such that 
+%
+%\begin{equation}\label{eq:tsyba1}
+%\|(B_0)_{\pi_0}-A\|_2=\min_{B \in \mathcal{B}_r,\pi}\|B_{\pi} -A\|_2^2
+%\end{equation} 
+%From \cite{TsybK} we know that with probability at least $1-\exp\left(-\Omega(k \log n)\right)$
+%\begin{equation}\label{eq:tsybakov}
+%\|(B_0)_{\pi_0}-Q\|_2^2 =O\left(\hat{\epsilon}_k^{(O)}(Q)^2+r\left(\frac{\log k}{n}+\frac{k^2}{n^2}\right) \right)
+%\end{equation}
+%We first notice that equation (\ref{eq:condition}) implies that for some $\hat{\pi}$, $k$-equipartition of $[n]$ \begin{equation}\label{eq:us}
+%\|\hat{B}_{\hat{\pi}}-A\|_2^2 \leq \min_{B \in \mathcal{B}_r,\pi}\|B_{\pi} -A\|_2^2 +\nu^2.
+%\end{equation}
+%
+%
+%Following an \textbf{identical} path as in the proof of \cite{TsybK} where from inequality (\ref{eq:tsyba1}) they prove inequality (\ref{eq:tsybakov}), it is easy to see that using (\ref{eq:condition}) we get again almost (\ref{eq:tsybakov}) with the only difference the addition of the parameter $\nu^2$ in the left hand side, that is with probability at least $1-\exp\left(-\Omega(k \log n)\right)$ \begin{equation}\label{eq:target}
+%\|(\hat{B})_{\hat{\pi}}-Q\|_2^2 =O\left(\hat{\epsilon}_k^{(O)}(Q)^2+r\left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)+\nu^2 \right).
+%\end{equation} This last inequality implies easily both of the desired results.
+%
+%For completeness we describe in more detail how we get the corresponding result following the exact same proof as in \cite{TsybK}. In \cite{TsybK} they establish 
+%\begin{itemize}
+%\item[(1)] With probability at least $1-\exp\left(-\Omega(k \log n)\right)$ for all $\pi$ $k$-partition of $[n]$,
+%\begin{equation}\label{eq:24}
+%<Q_{\pi}-Q,Q-A> \leq \frac{1}{16}\|Q_{\pi}-Q\|_2^2+O_P \left( r \frac{\log k}{n}\right)
+%\end{equation}
+%
+%This follows from the probabilistic bound above of equation (25), page 10 in \cite{TsybK}.
+%\item[(2)] With probability at least $1-\exp\left(-\Omega(k \log n)\right)$ for all $C \in \mathcal{B}_{r}$ and $\pi $ $k$-partition of $[n]$,
+%\begin{equation}\label{eq:25}
+%<C_{\pi},Q-A> = \frac{1}{16}\|C\|_2^2+O_P \left( r( \frac{\log k}{n}+\frac{k^2}{n^2}  )\right) 
+%\end{equation}
+%
+%The proof is identical to the second part of the Proof of Proposition 2.3. (second paragraph and below) in \cite{TsybK} for $C_{\pi}$ equal to what they denote as $\hat{\Theta}^r-\tilde{\Theta}_{\hat{z}_r}$.
+%
+%
+%%As in [Tsybakov] we first notice that f 
+%%q$$<C_{\pi},Q-A> \lew  
+%%Indeed we know that with probability at least (?) for all $\pi$ and for all $V \in C^*_\pi$ defined at the bottom of page 12 in [Tsybakov] where $\pi$ is denote by $\hat{z}_r$ there, the inequality
+%%\begin{equation}\label{eq:32}
+%%<V,Q-A> \leq \frac{1}{50}\|V\|_2^2+O_P \left( r( \frac{\log k}{n}+\frac{k^2}{n^2}  )\right).
+%%\end{equation}
+%% Now the same proof as for Lemma 4.1. in [Tsybakov] establishes the following result
+%%\begin{lemma}
+%%If $\|C_{\pi}\|_2 \geq \frac{2r}{n^2}$ then there exists a $D_{\pi} \in C^*_{\pi}$ with $\|C_{\pi}-D_{\pi}\|_2 \leq \frac{1}{4}\|C_{\pi}\|_2^$ and $\|C_{\pi}-D_{\pi}\|_{\infty} \leq r$.
+%%\end{lemma}
+%
+%\end{itemize}
+%
+%
+%We now choose $Q_{\pi_1}$ the best (wrt to $L_2$ norm) $k$-block approximation for $Q$ so that $\|Q_{\pi_1}-Q\|_2=\hat{\epsilon}_k^{(O)}(Q)$. Now (\ref{eq:us}) since $Q_{\pi_1} \in \mathcal{B}_r$ gives
+%\begin{align*}
+%\|\hat{B}_{\hat{\pi}}-A\|_2^2 \leq \|Q_{\pi_1}-A\|_2^2+\nu^2
+%\end{align*} 
+%which now adding and substracting $\hat{Q}$ inside the norm and expanding the 2-norms gives
+%\begin{align*}
+%\|\hat{B}_{\hat{\pi}}-Q\|_2^2 \leq \|Q_{\pi_1}-Q\|_2^2+\nu^2+2<Q_{\pi_1}-\hat{B}_{\hat{\pi}},Q-A>
+%\end{align*} 
+%or
+%\begin{align*}
+%\|\hat{B}_{\hat{\pi}}-Q\|_2^2 \leq \|Q_{\pi_1}-Q\|_2^2+\nu^2+2<Q_{\pi_1}-Q,Q-A>+2<Q-Q_{\hat{\pi}},Q-A>+2<(Q-\hat{B})_{\hat{\pi}},Q-A>.
+%\end{align*} 
+%Bounding now the first two inner products according to (\ref{eq:24}) and the last according to (\ref{eq:25}) we get with probability at least $1-\exp\left(-\Omega(k \log n)\right)$ the quantity $\|\hat{B}_{\hat{\pi}}-Q\|_2^2$ is at most
+%
+%\begin{align*}
+%\|Q_{\pi_1}-Q\|_2^2+\nu^2+ \frac{2}{16}\left(\|Q_{\pi_1}-Q\|_2^2+\|Q_{\hat{\pi}}-Q\|_2^2+\|(Q-\hat{B})_{\hat{\pi}}\|_2^2 \right) + O_P \left( r( \frac{\log k}{n}+\frac{k^2}{n^2}  )\right)  
+%\end{align*}
+%or recalling the way $Q_{\pi_1}$ was chosen, $\|Q_{\pi_1}-Q\|_2=\hat{\epsilon}_k^{(O)}(Q)$, we conclude
+%\begin{align*}
+%\|\hat{B}_{\hat{\pi}}-Q\|_2^2 \leq \frac{1}{8}\left(\|Q_{\hat{\pi}}-Q\|_2^2+\|(Q-\hat{B})_{\hat{\pi}}\|_2^2 \right) + O_P \left( \hat{\epsilon}_k^{(O)}(Q)^2+ r( \frac{\log k}{n}+\frac{k^2}{n^2}  )+\nu^2\right) . 
+%\end{align*}
+%
+%Now recall that $Q_{\pi}$ is the best $\pi$-block approximation in $L_2$ of $Q$. This implies $$\|Q_{\pi}-Q\|_2 \leq \|\hat{B}_{\hat{\pi}}-Q\|_2$$ and by triangle inequality  also $$\|(Q-\hat{B})_{\hat{\pi}}\|_2 \leq\|\hat{B}_{\hat{\pi}}-Q\|_2+\|Q_{\pi}-Q\|_2 \leq  2\|\hat{B}_{\hat{\pi}}-Q\|_2.$$ Hence putting the last inequalities together we have proven with probability at least (?), 
+%\begin{align*}
+%\|\hat{B}_{\hat{\pi}}-Q\|_2^2 \leq \frac{5}{8}\|\hat{B}_{\hat{\pi}}-Q\|_2^2 + O_P \left( \hat{\epsilon}_k^{(O)}(Q)^2+ r( \frac{\log k}{n}+\frac{k^2}{n^2}) + \nu^2 \right)  
+%\end{align*}
+%or 
+%\begin{equation*}
+%\|(\hat{B})_{\hat{\pi}}-Q\|_2^2 =O\left(\hat{\epsilon}_k^{(O)}(Q)^2+r\left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)+\nu^2 \right),
+%\end{equation*}
+%as we wanted.
+%\end{proof}
+%
+%Here we present a proof for how Proposition \ref{prop} implies Theorem \ref{stronger}.
+%\begin{proof} (of Theorem \ref{stronger})
+%As in the beginning of the Proof of Theorem 5 in \cite{Borgs2015} with probability at least $1-O(\frac{\Lambda}{n})-e^{-\Omega(n \rho \epsilon)}$,  $\hat{B}$ satisfies (\ref{eq:condition}) for $Q=\rho H_n( W)$, $r=\lambda \rho$ and $\nu=O\left(\lambda \rho  \sqrt{\frac{k^2\log n}{n \epsilon}}\right)$.
+%Therefore using Proposition \ref{prop} with probability at least $1-\exp(-\Omega( k\log n))-O(\frac{\Lambda}{n})-e^{-\Omega(n \rho \epsilon)}$ we know
+%\begin{align*}
+%&\hat{\delta}_2\left(\hat{B},\rho H_n(W)\right) \leq O\left(\epsilon_k^{(O)}(\rho H_n(W))+\sqrt{\lambda \rho \left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)} + \lambda \rho  \sqrt{\frac{k^2\log n}{n \epsilon}}\right)\\
+%\text{ or }&  \hat{\delta}_2\left(\frac{1}{\rho}\hat{B}, H_n(W)\right) \leq O\left(\hat{\epsilon}_k^{(O)}(H_n(W))+\sqrt{\lambda  \left(\frac{\log k}{\rho n}+\frac{k^2}{\rho n^2}\right)} + \lambda  \sqrt{\frac{k^2\log n}{n \epsilon}}\right).
+%\end{align*}
+%Using triangle inequality this easily gives
+%\begin{align*}
+% \hat{\delta}_2\left(\frac{1}{\hat{\rho}}\hat{B}, H_n(W)\right) \leq O\left(\hat{\epsilon}_k^{(O)}(H_n(W))+\sqrt{\lambda  \left(\frac{\log k}{\rho n}+\frac{k^2}{\rho n^2}\right)} + \lambda  \sqrt{\frac{k^2\log n}{n \epsilon}}+\|B\|_2 |\frac{\rho}{\hat{\rho}}-1|\right)\\
+%\end{align*}
+%Now Proposition \ref{prop} gives that with probability at least $1-e^{-\Omega(n \rho \epsilon)}$ it holds  $$\|B\|_2  \leq O( \|H_n(W)\|_2+\lambda \rho \sqrt{\frac{k^2\log n}{n \epsilon}}+\sqrt{\lambda \rho \left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)}  ).$$
+%Because $\|W\|_1=1,\|W\|_{\infty} \leq \lambda$ we have $\|H_n(W)\|_2 \leq O_P( \sqrt{\lambda})$.  Therefore $\hat{\delta}_2\left(\frac{1}{\hat{\rho}}\hat{B},H_n(W)\right)$ is at most
+%
+%\begin{equation*}
+%O\left(\hat{\epsilon}_k^{(O)}( H_n(W))+\sqrt{\lambda  \left(\frac{\log k}{ \rho n}+\frac{k^2}{\rho n^2}\right)} + \lambda  \sqrt{\frac{k^2\log n}{n \epsilon}}+(\sqrt{\lambda}+\lambda \rho \sqrt{\frac{k^2\log n}{n \epsilon}}+\sqrt{\lambda \rho \left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)} ) | \frac{\rho}{\hat{\rho}}-1|\right)
+%\end{equation*}
+%
+%Since with probability $1-e^{-\Omega(n \rho \epsilon)} $ Lemma 8 of \cite{Borgs2015} holds we have with the same probability $| \frac{\rho}{\hat{\rho}}-1|=O( \min\{\frac{1}{n \rho \epsilon}+\sqrt{\frac{\lambda}{n }},\frac{1}{\rho}\})$. Hence with probability $1-e^{-\Omega(n \rho \epsilon)} $ using also our upper bound on $\epsilon$ we have,
+%$$\sqrt{\lambda}| \frac{\rho}{\hat{\rho}}-1| \leq O(\frac{\sqrt{\lambda}}{n \rho \epsilon}+\frac{\lambda}{\sqrt{n} })=O(\frac{\sqrt{\lambda}}{n \rho \epsilon}+\lambda  \sqrt{\frac{k^2\log n}{n \epsilon}})$$ and
+%$$(\lambda \rho \sqrt{\frac{k^2\log n}{n \epsilon}}+\sqrt{\lambda \rho \left(\frac{\log k}{n}+\frac{k^2}{n^2}\right)} ) | \frac{\rho}{\hat{\rho}}-1| \leq O(\sqrt{\lambda  \left(\frac{\log k}{\rho n}+\frac{k^2}{\rho n^2}\right)} + \lambda  \sqrt{\frac{k^2\log n}{n \epsilon}})$$ Combining the last three inequalities together we get that with probability at least $1-\exp(-\Omega( k\log n))-O(\frac{\Lambda}{n})-O(e^{-\Omega(n \rho \epsilon)}),$
+%\begin{equation*}
+%\hat{\delta}_2\left(\frac{1}{\hat{\rho}}\hat{B},H_n(W)\right) \leq O\left(\hat{\epsilon}_k^{(O)}( H_n(W))+\sqrt{\lambda  \left(\frac{\log k}{ \rho n}+\frac{k^2}{\rho n^2}\right)} + \lambda  \sqrt{\frac{k^2\log n}{n \epsilon}}+ \frac{\sqrt{\lambda}}{n \rho \epsilon}\right),
+%\end{equation*}as we wanted.
+%
+%
+%\end{proof}
+%
+%\section{Proof of Upper Bound}
+%We start with a lemma.
+%
+%\begin{lemma}\label{union}
+%Let $p \in [0,1]$. For every $S \subseteq V(G),|S|=k$ set the event $$A_{p,S}:=\{ |E(S,S^c)+E(S,S)-p\left[ k\left(n-k\right)+\binom{k}{2} \right]| \leq \max\{p(1-p),\sqrt{\frac{\log n}{n}}\}2k\sqrt{n \log n} |\}.$$ Then it holds
+%$$\mathbb{P}_{G \sim G_{n,p}}\left[ \bigcup_{S \subseteq V(G) } A^c_{p,S} \right] \leq \frac{1}{n^2}.$$
+%\end{lemma}
+%
+%\begin{proof}
+%
+%Set $c=\max\{p(1-p),\sqrt{\frac{\log n}{n}}\}$.
+%By a union bound, Berstein inequality and basic algebra we have
+%\begin{align*}
+%&\mathbb{P}_{G \sim G_{n,p}}\left[ \bigcup_{S \subseteq V(G) } A^c_{p,S} \right] \\
+%&\leq \sum_{k=1}^{n} \binom{n}{k} \exp\left( -4\frac{c^2k^2n \log n}{\left(k(n-k)+\binom{k}{2}\right)p(1-p)+2c k \sqrt{n \log n}} \right)\\
+%&\leq \sum_{k=1}^n n^k n^{-4 k} \\
+%&\leq n\frac{1}{n^3}=\frac{1}{n^2}
+%\end{align*}
+%
+%\end{proof}
+%
+%\begin{proof}
+%We now begin the proof of Proposition (\ref{thm32}). We remind the reader that the sampling error is $\frac{1}{n}$.
+%
+%
+%Given the Proposition (\ref{extention}) a strategy would be to find a subset $H_n$ of all the graphs on $n$ vertices so that
+%\begin{equation}\label{eq:assum1}
+%\max_{p \in [0,1]} \mathbb{P}_{G \sim G_{n,p}} \left( G \not \in H_n \right) \leq \frac{1}{n}
+%\end{equation}
+%
+%and furthermore define an $\epsilon$-Lip function $\hat{\mu}$ on $H_n$ so that for all $G \in H_n$, 
+%\begin{equation}\label{eq:assum2}
+%\mathbb{E}_{\hat{p} \sim \hat{\mu}_G}[|\hat{p}-e(G)|] \leq \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} \frac{100}{n^{\frac{3}{2}} \epsilon} \sqrt{\log n}
+%\end{equation}
+%
+%Then, from Proposition (\ref{extention}) we could extend this mapping to a $2\epsilon$-Lipschitz mapping on the space of all graphs and furthermore have for all $p$,
+%\begin{align*}
+%&\mathbb{E}_{G \sim G_{n,p},\hat{p} \sim \mu_G}[|\hat{p}-e(G)|]\leq  \mathbb{P}_{G \sim G_{n,p}} \left( G \not \in H_n \right)+\max_{G \in H_n} \mathbb{E}_{\hat{p} \sim \hat{\mu}_G}[|\hat{p}-e(G)|]\\
+%&=O \left(\frac{1}{n}+\max\{p(1-p),\sqrt{\frac{\log n}{n}}\} \frac{\sqrt{\log n}}{n^{\frac{3}{2}}\epsilon} \right)
+%\end{align*}
+%
+%Given lemma (\ref{union}) we define $$H_n=\bigcup_{p \in [0,1]}\bigcap_{S \subseteq V(G)} A_{p,S},$$ that is all the graphs on $n$ vertices for which for some $p \in [0,1]$  all $A_{p,S}$ are satisfied. This represents for us the class of \textbf{homogeneous} graphs. Given the Lemma (\ref{union}) we know that indeed (\ref{eq:assum1}) is satisfied.
+%
+%For the next condition we define for every graph $G \in H_n$ the distribution over $[0,1]$ to come from the addition of ``truncated" Laplacian noise given by $$\hat{\mu}_G(q) \propto 2^{-\epsilon c \min \{\frac{n^{\frac{3}{2}}}{\max\{p(1-p),\sqrt{\frac{\log n}{n}}\}\sqrt{\log n}} |e(G)-q|,n\}}$$ for $q \in [0,1]$. The constant $c>0$ will be satisfied later on.
+%
+%It is easy to prove that (\ref{eq:assum2}) is satisfied but we need to prove that our mapping is $\epsilon$-Lip.
+%
+%To do this it is easy to establish first by triangle inequality that for any graphs on $n$ vertices $G_1,G_2$ $$D_{\infty} \left( \hat{\mu}_{G_1},\hat{\mu}_{G_2} \right) \leq 2\epsilon c \min \{\frac{n^{\frac{3}{2}}}{\max\{p(1-p),\sqrt{\frac{\log n}{n}}\}\sqrt{\log n}} |e(G_1)-e(G_2)|,n\} $$
+%
+%Hence we only need to prove that for some $c>0$ small enough and for any $G_1,G_2 \in H$ it holds $$c\min\{ \frac{n^{\frac{3}{2}}}{\max\{p(1-p),\sqrt{\frac{\log n}{n}}\}\sqrt{\log n}}|e(G)-e(G')|,n\} \leq \delta_V(G,G').$$ 
+%
+%This is what we prove in the next claim we completes the proof.
+%
+%\begin{claim}
+%There exists a universal constant $c>0$ such that for any $G,G' \in H$, it holds $$c\min\{ \frac{n^{\frac{3}{2}}}{\max\{p(1-p),\sqrt{\frac{\log n}{n}}\} \sqrt{\log n}}|e(G)-e(G')|,n\} \leq \delta_V(G,G').$$ 
+%\end{claim}
+%
+%\begin{proof}
+%Let $G,G' \in H$. By assuming $c<\frac{1}{4}$ we may assume that $\delta_V(G,G') \leq \frac{n}{4}$. In that case we will prove that for some universal $c>0$, $$c\frac{n^{\frac{3}{2}}}{\sqrt{\log n}}|e(G)-e(G')| \leq  \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} \delta_V(G,G').$$ 
+%
+%Let $p,q$ such that $G \in \bigcap_{S \subseteq V(G)} A_{p,S}$ and $G'\in \bigcap_{S \subseteq V(G)} A_{q,S}$.
+%Consider $S_0 \subseteq V(G)$ the vertices that need to be rewired to change $G$ to $G'$. In particular it holds $\delta_V(G,G')=|S_0|=:k$.
+%Now we have
+%\begin{align*}
+%& |E(G)-E(G')|\\
+%&=|E_G(S_0,S_0)+E_G(S_0,S^c_0)-E_{G'}(S_0,S_0)-E_{G'}(S_0,S^c_0)|\\
+%& \leq |p-q| \left( k(n-k)+\binom{k}{2} \right) +4 \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} k  \sqrt{n \log n} \text{ ,using  }  G \in A_{p,S_0}, G' \in A_{q,S_0}
+%\end{align*}
+%
+%Now observe that since $G \in A_{p,V(G)}, G' \in A_{q,V(G')}$ it holds $|E(G)-p \binom{n}{2}| \leq 2 \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} n \sqrt{n \log n}$, $|E(G')-q \binom{n}{2}| \leq 2 \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} n \sqrt{n \log n}$. Hence, $$|p-q| \leq \frac{1}{\binom{n}{2}}|E(G)-E(G')|+\frac{4 \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} n \sqrt{n \log n}}{\binom{n}{2}}$$
+%
+%Plugging this into the previous inequality we have, \begin{align*}
+%&|E(G)-E(G')| \leq \\
+%&\left[\frac{1}{\binom{n}{2}}|E(G)-E(G')|+\frac{4 \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} n \sqrt{n \log n}}{\binom{n}{2}}\right] \left( k(n-k)+\binom{k}{2} \right)\\
+%& +4\max\{p(1-p),\sqrt{\frac{\log n}{n}}\} k  \sqrt{n \log n},
+%\end{align*}
+%
+%
+%
+%Since  $ k(n-k)+\binom{k}{2} \leq kn$ we can equivalently write the inequality as
+%$$\left( \binom{n}{2}-kn \right)|e(G)-e(G')| \leq 8 \frac{n^2}{\binom{n}{2}} \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} k  \sqrt{n \log n}.$$
+%
+%But now as we have assumed $k \leq \frac{n}{4}$ we have $\binom{n}{2}-kn \geq \frac{n^2}{8}$ (large n) and since $\frac{n^2}{\binom{n}{2}} \leq 4$ (large n) the inequality gives 
+%for some universal $c>0$
+%$$c\frac{n^{\frac{3}{2}}}{\sqrt{\log n}}|e(G)-e(G')| \leq  \max\{p(1-p),\sqrt{\frac{\log n}{n}}\} k  =\max\{p(1-p),\sqrt{\frac{\log n}{n}}\} \delta_V(G,G'),$$
+%as we wanted.
+%
+%
+%\end{proof}
+%\end{proof}
+
+
+\bibliographystyle{apalike}
+\bibliography{bibliography}
+
+\end{document}
