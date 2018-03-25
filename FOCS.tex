@@ -71,6 +71,7 @@
 \def\AA{\mathcal{A}}
 \def\F{\mathcal{F}}
 \def\EE{\mathcal{E}}
+\def\bE{\operatorname*{\mathbb{E}}}
 \def\B{\mathcal{B}}
 \def\LL{\mathcal{L}}
 \def\NN{\mathcal{N}}
@@ -226,20 +227,39 @@ Then the Algorithm 1 from \cite{Borgs2015} with input $\epsilon,\lambda,k$ and $
 
 
 In the next subsections we discuss the part of the rate which is dependent on $\epsilon$.
-\subsection{The One Block Case}
+\section{A New Algorithm for Density Estimation in Random Graphs}
+\label{density}
 
-\subsection*{The Upper Bound}
 
 The rate we want to find is for $\rho \in [0,1]$, $$R_{\rho}=\min_{ \mu :(\mathcal{G}_n,\delta_v) \rightarrow (\mathcal{M},D_{\infty}) \\ \epsilon-Lipschitz} \max_{ p \in [0,\rho]} \mathbb{E}_{G \sim G_{n,p},\hat{p} \sim \mu_G}[|\hat{p}-p|]$$
 
-\begin{proposition}\label{thm32}
-Suppose $\epsilon n \rightarrow +\infty$. For every $\rho \in [0,\rho]$ we have $$R_{\rho} \leq O \left( \frac{1}{n}+\max\{\rho,\sqrt{\frac{\log n}{n}}\} \frac{\sqrt{\log n}}{n^{\frac{3}{2}} \epsilon} \right).$$
+\begin{proposition}\label{prop:32-fixed-m} Let $\epsilon, \rho$ be
+  functions of $n$ such that $\epsilon n \rightarrow +\infty$. There
+  is an $\epsilon$-node-DP algorithm $A$ such that, for all $m < \rho
+\binom n 2$,
+
+$$\bE_{G\sim G(n,m)} \Big| A(G) - m \Big| =  O \left(\max\left\{\rho,\sqrt{\tfrac{\log n}{n}}\right\}  \cdot\frac{\sqrt{\log n}}{n^{\frac{3}{2}} \epsilon} \right).$$
 \end{proposition}
-\subsection*{The Lower Bound}
 
-\subsection{The Two Blocks Case}
 
-[Here Laplace noise is optimal and the rate is $\frac{1}{n \epsilon}$.]
+
+\begin{theorem}\label{thm32}
+Suppose $\epsilon n \rightarrow +\infty$. For every $\rho \in
+[0,\rho]$ we have $$R_{\rho} \leq O \left(
+  \frac{1}{n}+\max\{\rho,\sqrt{\frac{\log n}{n}}\} \frac{\sqrt{\log n}}{n^{\frac{3}{2}} \epsilon} \right).$$
+\end{theorem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% This code imports the lower bounds section
+%
+\input{lowerbounds}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
 \section{A General Extension Technique}
 \subsection*{The Model}
 Let $n \in \mathbb{N}$ and $\epsilon>0$. We assume that the analyst's objective is to estimate a certain quantity which takes values in $ \mathbb{R}^n$ from input data which take values in a metric space $(\mathcal{M},d)$. The analyst is assumed to use for this task a randomized algorithm $\mathcal{A}$ which should be \begin{itemize}
